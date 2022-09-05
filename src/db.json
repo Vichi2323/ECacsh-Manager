@@ -1,0 +1,33 @@
+{
+    "identityUsers": [{
+            "firstName": "vichi",
+            "lastName": "pichi",
+            "birthDate": "2022-08-16T22:00:00.000Z",
+            "email": "nche@gmail.com",
+            "phone": "2323223",
+            "gender": "male",
+            "address": "aaasdsadsd",
+            "id": 2
+        },
+        {
+            "firstName": "lele",
+            "lastName": "lelence",
+            "birthDate": "2022-08-09T22:00:00.000Z",
+            "email": "nche@gmail.com",
+            "phone": "2323223",
+            "gender": "male",
+            "address": "Cacko Konopishki br. 13/7",
+            "id": 3
+        },
+        {
+            "gender": "male",
+            "firstName": "vichi",
+            "lastName": "bibibi",
+            "birthDate": "2022-07-31T22:00:00.000Z",
+            "email": "nche@gmail.com",
+            "phone": "2323223",
+            "address": "recimo",
+            "id": 4
+        }
+    ]
+}

@@ -1,0 +1,51 @@
+<mat-sidenav-container>
+    <mat-sidenav #sidenav class="mat-elevation-z8" opened mode="side">
+        <button mat-button class="menu-button" routerLink="/user">
+      <mat-icon>people</mat-icon>
+      <span>User</span>
+    </button>
+        <button mat-button class="menu-button" (click)="redirectTo('enviorments')">
+      <mat-icon>domain</mat-icon>
+      <span>Enviorment</span>
+    </button>
+        <button mat-button class="menu-button" (click)="redirectTo('order')">
+      <mat-icon>sort by alpha</mat-icon>
+      <span>Order</span>
+    </button>
+
+        <button mat-button class="menu-button" (click)="redirectTo('payment')">
+      <mat-icon>payments</mat-icon>
+      <span>Payment</span>
+    </button>
+        <h3>IDENTITY SERVER</h3>
+        <mat-divider></mat-divider>
+        <button mat-button class="menu-button" (click)="redirectTo('identity-users')">
+      <mat-icon>perm_identity</mat-icon>
+      <span>Identity User</span>
+    </button>
+        <button mat-button class="menu-button" (click)="redirectTo('application')">
+      <mat-icon>app_settings_alt</mat-icon>
+      <span>Application</span>
+    </button>
+        <h3>OPERATIONS</h3>
+        <mat-divider></mat-divider>
+        <button mat-button class="menu-button" routerLink="/database-server">
+      <mat-icon>dataset_linked</mat-icon>
+      <span>Database Server</span>
+    </button>
+        <button mat-button class="menu-button" routerLink="/message-queu-servers">
+      <mat-icon>forum</mat-icon>
+      <span>Message Queue Servers</span>
+    </button>
+
+        <button mat-button class="menu-button" routerLink="/media-library">
+      <mat-icon>video_library</mat-icon>
+      <span>Media Library</span>
+    </button>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

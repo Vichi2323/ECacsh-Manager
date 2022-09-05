@@ -1,0 +1,103 @@
+.example-spacer {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.title-span {
+    padding-left: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    font-size: 20px;
+    cursor: pointer;
+    color: #616161;
+}
+
+mat-toolbar {
+    position: relative;
+    z-index: 5;
+    background-color: white;
+    color: white;
+    flex: 1 1 auto;
+    box-shadow: #2D3142;
+}
+
+mat-sidenav {
+    /* margin: 16px; */
+    width: 250px;
+    border-top: none;
+    background: #FFFFFF;
+    color: #616161;
+    padding: 16px;
+    text-align: center;
+    height: 100%;
+    box-shadow: 2px 2px 8px rgb(218, 218, 218);
+    border-right: 1px solid #8f8f8f54;
+}
+
+mat-sidenav-container {
+    height: calc(100vh - 65px);
+    background-color: whitesmoke;
+    border-top: none;
+    overflow: hidden !important;
+}
+
+.menu-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
+}
+
+mat-icon {
+    margin-right: 8px;
+    color: #616161;
+}
+
+mat-drawer-inner-container {
+    overflow: hidden !important;
+}
+
+h3 {
+    margin-top: 30px;
+    text-align: start;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+mat-divider {
+    background-color: #616161;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.avatar {
+    margin-top: 16px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+@media only screen and (max-width: 800px) {
+    .mat-elevation-z8 {
+        display: none;
+    }
+}
+
+::ng-deep .mat-drawer-inner-container {
+    overflow: visible!important;
+}
+
+.example-stretched-tabs {
+    max-width: 800px;
+}
+
+mat-form-field {
+    font-size: 14px;
+    margin-bottom: 25px;
+    margin-top: 30px;
+    width: 250px;
+    background-color: white;
+    color: #616161;
+    margin-left: 100px;
+}

@@ -1,0 +1,62 @@
+mat-sidenav {
+    /* margin: 16px; */
+    width: 250px;
+    border-top: none;
+    background: #FFFFFF;
+    color: #616161;
+    padding: 16px;
+    text-align: center;
+    height: 100%;
+    box-shadow: 2px 2px 8px rgb(218, 218, 218);
+    border-right: 1px solid #8f8f8f54;
+}
+
+mat-sidenav-container {
+    height: calc(100vh - 65px);
+    background-color: whitesmoke;
+    border-top: none;
+    overflow: hidden !important;
+}
+
+.menu-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
+}
+
+mat-icon {
+    margin-right: 8px;
+    color: #616161;
+}
+
+mat-drawer-inner-container {
+    overflow: hidden !important;
+}
+
+h3 {
+    margin-top: 30px;
+    text-align: start;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+mat-divider {
+    background-color: #616161;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+@media only screen and (max-width: 800px) {
+    .mat-elevation-z8 {
+        display: none;
+    }
+}
+
+::ng-deep .mat-drawer-inner-container {
+    overflow: visible!important;
+}
+
+.example-stretched-tabs {
+    max-width: 800px;
+}

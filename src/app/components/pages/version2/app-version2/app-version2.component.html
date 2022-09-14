@@ -1,6 +1,6 @@
 <mat-sidenav-container>
     <mat-sidenav #sidenav class="mat-elevation-z8" opened mode="side">
-        <button mat-button class="menu-button" routerLink="/user">
+        <button mat-button class="menu-button" (click)="redirectTo('app-users-list')">
       <mat-icon>people</mat-icon>
       <span>User</span>
     </button>

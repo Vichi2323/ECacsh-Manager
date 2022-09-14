@@ -26,10 +26,6 @@ export class ApiService {
   delete(id: any): Observable<any> {
     return this.http.delete(`${baseUrl}/${id}`);
   }
-  deleteAll(): Observable<any> {
-    return this.http.delete(baseUrl);
-  }
-  findByFirstName(title: any): Observable<IUser[]> {
-    return this.http.get<IUser[]>(`${baseUrl}?title=${title}`);
-  }
+
+
 }

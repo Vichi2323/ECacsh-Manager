@@ -6,16 +6,14 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { IUser } from 'src/identityUserModel/model';
-
-
 @Component({
-  selector: 'app-identity-users',
-  templateUrl: './identity-users.component.html',
-  styleUrls: ['./identity-users.component.scss']
+  selector: 'app-application-users',
+  templateUrl: './application-users.component.html',
+  styleUrls: ['./application-users.component.scss']
 })
-export class IdentityUsersComponent implements OnInit, AfterViewInit {
+export class ApplicationUsersComponent implements OnInit, AfterViewInit {
 
-  displayedColumns: any[] = ["firstName", "lastName", "birthDate", "email", "phone", "gender", "createdAt", "active", "address", "actions"];
+  displayedColumns: any[] = ["firstName", "lastName", "email", "role", "actions"];
   users?: IUser[]
   currentUser: IUser = {}
   currentIndex = -1;
@@ -32,7 +30,7 @@ export class IdentityUsersComponent implements OnInit, AfterViewInit {
   }
 
   constructor(private apiService: ApiService, private router: Router, private userService: ApiService,
-  ) { }
+  ) { this.dataSource = new MatTableDataSource(this.users) }
 
   ngOnInit(): void {
     this.retrieveUsers()
@@ -75,7 +73,7 @@ export class IdentityUsersComponent implements OnInit, AfterViewInit {
   }
 
   newUser() {
-    var url = 'v2/create-edit'
+    var url = 'v2/app-users-create-edit'
     this.router.navigateByUrl(url);
   }
 

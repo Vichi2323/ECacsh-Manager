@@ -19,8 +19,8 @@ export class ToolbarComponent {
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav
 
-  constructor(private observer: BreakpointObserver, private router: Router) {
-    this.selectedVersion = 'v2/identity-users';
+  constructor(private router: Router) {
+    this.selectedVersion = 'v2/dashboardV2';
   }
 
 
@@ -28,24 +28,12 @@ export class ToolbarComponent {
     this.router.navigate([url]);
   }
 
-  redirectTo(url: string) {
-    this.router.navigate(['v2/' + url]);
+  handleLogoClicked() {
+    this.selectedVersion = 'v2/dashboardV2';
+    this.router.navigate(['v2/dashboardV2']);
   }
 
 
-  // ngAfterViewInit() {
-  //   this.observer.observe(['{max-width: 800px}']).subscribe((res) => {
-  //     if (res.matches) {
-  //       this.sidenav.mode = 'over'
-  //       this.sidenav.close()
-  //     } else {
-  //       this.sidenav.mode = 'side'
-  //       this.sidenav.open()
-  //     }
-  //   })
+
 }
 
-//   toggleSidenav() {
-
-//   }
-// }

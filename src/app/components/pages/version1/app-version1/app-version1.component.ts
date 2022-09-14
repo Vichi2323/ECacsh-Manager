@@ -1,6 +1,7 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-app-version1',
@@ -12,7 +13,7 @@ export class AppVersion1Component {
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav
 
-  constructor(private observer: BreakpointObserver) { }
+  constructor(private observer: BreakpointObserver, private router: Router) { }
 
   ngAfterViewInit() {
     this.observer.observe(['{max-width: 800px}']).subscribe((res) => {
@@ -28,6 +29,10 @@ export class AppVersion1Component {
 
   toggleSidenav() {
     this.sidenav.opened = !this.sidenav.opened;
+  }
+
+  redirectTo(url: string) {
+    this.router.navigate(['v1/' + url]);
   }
 
 }

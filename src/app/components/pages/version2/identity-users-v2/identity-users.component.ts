@@ -6,12 +6,14 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { IUser } from 'src/identityUserModel/model';
+
+
 @Component({
-  selector: 'app-identity-users-v1',
-  templateUrl: './identity-users-v1.component.html',
-  styleUrls: ['./identity-users-v1.component.scss']
+  selector: 'app-identity-users',
+  templateUrl: './identity-users.component.html',
+  styleUrls: ['./identity-users.component.scss']
 })
-export class IdentityUsersV1Component implements OnInit, AfterViewInit {
+export class IdentityUsersComponent implements OnInit, AfterViewInit {
 
   displayedColumns: any[] = ["firstName", "lastName", "birthDate", "email", "phone", "gender", "createdAt", "active", "address", "actions"];
   users?: IUser[]
@@ -72,12 +74,12 @@ export class IdentityUsersV1Component implements OnInit, AfterViewInit {
   }
 
   newUser() {
-    var url = 'v1/create-editV1'
+    var url = 'v2/create-edit'
     this.router.navigateByUrl(url);
   }
 
   editUser(userId: number) {
-    var url = 'v1/create-editV1/' + userId;
+    var url = 'v2/create-edit/' + userId;
     this.router.navigateByUrl(url);
   }
 

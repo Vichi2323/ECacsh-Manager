@@ -3,11 +3,11 @@ import { ApiService } from 'src/app/services/api.service';
 import { ActivatedRoute, Router } from "@angular/router";
 import { IUser } from "src/identityUserModel/model";
 @Component({
-  selector: 'app-create-edit-identity-users-v1',
-  templateUrl: './create-edit-identity-users-v1.component.html',
-  styleUrls: ['./create-edit-identity-users-v1.component.scss']
+  selector: 'app-create-edit-application-users-v1',
+  templateUrl: './create-edit-application-users-v1.component.html',
+  styleUrls: ['./create-edit-application-users-v1.component.scss']
 })
-export class CreateEditIdentityUsersV1Component implements OnInit {
+export class CreateEditApplicationUsersV1Component implements OnInit {
 
   user!: IUser;
   userId: any;

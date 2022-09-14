@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AppVersion1Component } from './app-version1.component';
+import { DashboardV2Component } from './dashboard-v2.component';
 
-describe('AppVersion1Component', () => {
-  let component: AppVersion1Component;
-  let fixture: ComponentFixture<AppVersion1Component>;
+describe('DashboardV2Component', () => {
+  let component: DashboardV2Component;
+  let fixture: ComponentFixture<DashboardV2Component>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AppVersion1Component ]
+      declarations: [ DashboardV2Component ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AppVersion1Component);
+    fixture = TestBed.createComponent(DashboardV2Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

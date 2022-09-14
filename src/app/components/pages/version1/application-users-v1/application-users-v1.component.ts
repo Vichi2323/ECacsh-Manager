@@ -7,20 +7,28 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { IUser } from 'src/identityUserModel/model';
 @Component({
-  selector: 'app-identity-users-v1',
-  templateUrl: './identity-users-v1.component.html',
-  styleUrls: ['./identity-users-v1.component.scss']
+  selector: 'app-application-users-v1',
+  templateUrl: './application-users-v1.component.html',
+  styleUrls: ['./application-users-v1.component.scss']
 })
-export class IdentityUsersV1Component implements OnInit, AfterViewInit {
+export class ApplicationUsersV1Component implements OnInit, AfterViewInit {
 
-  displayedColumns: any[] = ["firstName", "lastName", "birthDate", "email", "phone", "gender", "createdAt", "active", "address", "actions"];
+  displayedColumns: any[] = ["firstName", "lastName", "email", "role", "actions"];
   users?: IUser[]
   currentUser: IUser = {}
   currentIndex = -1;
   dataSource!: MatTableDataSource<any>;
+  IUser: any = []
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatPaginator, { static: false }) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+
+
+
+  constructor(private apiService: ApiService, private router: Router, private userService: ApiService,
+  ) {
+    this.dataSource = new MatTableDataSource(this.users)
+  }
 
 
   ngAfterViewInit() {
@@ -28,22 +36,24 @@ export class IdentityUsersV1Component implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
-  constructor(private router: Router, private userService: ApiService,
-  ) { this.dataSource = new MatTableDataSource(this.users) }
+
 
   ngOnInit(): void {
     this.retrieveUsers()
+
   }
 
+
   retrieveUsers(): void {
-    this.userService.getAll()
+    this.apiService.getAll()
       .subscribe({
         next: (data) => {
           this.users = data
-          this.dataSource = new MatTableDataSource<any>(this.users);
+          this.dataSource = new MatTableDataSource(this.users);
         },
         error: (e) => console.error(e)
       })
+
   }
 
   onDelete(userId: number) {
@@ -55,6 +65,7 @@ export class IdentityUsersV1Component implements OnInit, AfterViewInit {
       this.dataSource = new MatTableDataSource<any>(this.users);
 
     })
+
 
 
   }
@@ -72,7 +83,7 @@ export class IdentityUsersV1Component implements OnInit, AfterViewInit {
   }
 
   newUser() {
-    var url = 'v1/create-editV1'
+    var url = 'v1/app-users-create-editV1'
     this.router.navigateByUrl(url);
   }
 
@@ -80,6 +91,7 @@ export class IdentityUsersV1Component implements OnInit, AfterViewInit {
     var url = 'v1/create-editV1/' + userId;
     this.router.navigateByUrl(url);
   }
+
 
 
 

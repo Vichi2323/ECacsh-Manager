@@ -37,13 +37,15 @@ mat-drawer-inner-container {
 
 h3 {
     margin-top: 30px;
+    margin-bottom: 0px;
     text-align: start;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 mat-divider {
+    opacity: 0.4;
     background-color: #616161;
-    margin-top: 16px;
+    margin-top: 0px;
     margin-bottom: 16px;
 }
 

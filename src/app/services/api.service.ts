@@ -26,6 +26,11 @@ export class ApiService {
   delete(id: any): Observable<any> {
     return this.http.delete(`${baseUrl}/${id}`);
   }
-
+  disableUser(id: any): Observable<any> {
+    return this.http.post(`${baseUrl}/${id}/disable`, {});
+  }
+  enableUser(id: any): Observable<any> {
+    return this.http.post(`${baseUrl}/${id}/enable`, {});
+  }
 
 }

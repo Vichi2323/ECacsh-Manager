@@ -1,7 +1,8 @@
 import { Component, Inject, OnInit } from "@angular/core";
-import { ApiService } from 'src/app/services/api.service';
+import { identityUserService } from "../services/identity-users.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { IUser } from "src/identityUserModel/model";
+import { IdentityUser } from "../models/identity-user-model";
 @Component({
   selector: 'app-create-edit-identity-users-v1',
   templateUrl: './create-edit-identity-users-v1.component.html',
@@ -9,10 +10,10 @@ import { IUser } from "src/identityUserModel/model";
 })
 export class CreateEditIdentityUsersV1Component implements OnInit {
 
-  user!: IUser;
+  user!: IdentityUser;
   userId: any;
   mode: string;
-  constructor(private router: Router, private userService: ApiService, private activatedRoute: ActivatedRoute) {
+  constructor(private router: Router, private userService: identityUserService, private activatedRoute: ActivatedRoute) {
     this.mode = '';
     this.user = {};
   }
@@ -32,7 +33,7 @@ export class CreateEditIdentityUsersV1Component implements OnInit {
 
     } else {
       this.mode = 'create';
-      this.initUser();
+
     }
 
   }
@@ -58,8 +59,6 @@ export class CreateEditIdentityUsersV1Component implements OnInit {
 
 
 
-  initUser() {
-    this.user = { gender: 'male' }
-  }
+
 
 }

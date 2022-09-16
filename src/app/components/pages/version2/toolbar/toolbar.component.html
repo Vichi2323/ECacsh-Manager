@@ -16,17 +16,22 @@
       <mat-icon>account_circle</mat-icon>
     </button>
         <div>
-            <mat-menu #menu="matMenu">
+            <mat-menu #menu="matMenu" class="mat-menu">
                 <div mat-menu-item class="profile-menu">
                     <mat-icon>account_circle</mat-icon>
-                    <span>John Dou</span>
+                    <span>John Dou </span>
+                    <span class="email-span">Email</span>
                 </div>
+
+                <div class="content"></div>
                 <mat-divider></mat-divider>
-                <div mat-menu-item>
-                    <span>Profile</span>
-                </div>
-                <div mat-menu-item>
-                    <span>Sign out</span>
+                <div class="profile-menu-content">
+                    <div mat-menu-item class="content">
+                        <span>Profile</span>
+                    </div>
+                    <div mat-menu-item class="content">
+                        <span>Sign out</span>
+                    </div>
                 </div>
             </mat-menu>
         </div>

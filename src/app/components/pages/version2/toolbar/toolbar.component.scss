@@ -101,3 +101,35 @@ mat-form-field {
     color: #616161;
     margin-left: 100px;
 }
+
+.profile-menu {
+    margin-bottom: 0px;
+}
+
+.email-span {
+    font-size: 8px;
+}
+
+.profile-menu-content {
+    max-width: 300px;
+    max-height: 400px;
+    min-width: 180px;
+    min-height: 80px;
+    margin-bottom: 8px;
+    margin-top: 35px;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content {
+    font-size: 1rem;
+    max-width: 300px;
+    max-height: 200px;
+    min-width: 100px;
+    // min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

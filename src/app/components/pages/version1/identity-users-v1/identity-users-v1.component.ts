@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/services/api.service';
+import { identityUserService } from '../services/identity-users.service';
 import { AfterViewInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { IUser } from 'src/identityUserModel/model';
+import { IdentityUser } from '../models/identity-user-model';
 @Component({
   selector: 'app-identity-users-v1',
   templateUrl: './identity-users-v1.component.html',
@@ -13,9 +13,9 @@ import { IUser } from 'src/identityUserModel/model';
 })
 export class IdentityUsersV1Component implements OnInit, AfterViewInit {
 
-  displayedColumns: any[] = ["firstName", "lastName", "birthDate", "email", "phone", "gender", "createdAt", "active", "address", "actions"];
-  users?: IUser[]
-  currentUser: IUser = {}
+  displayedColumns: any[] = ["email", "userName", "phoneNumber", "isActive", "joinDate", "actions"];
+  users?: IdentityUser[]
+  currentUser: IdentityUser = {}
   currentIndex = -1;
   dataSource!: MatTableDataSource<any>;
 
@@ -28,7 +28,7 @@ export class IdentityUsersV1Component implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
-  constructor(private router: Router, private userService: ApiService,
+  constructor(private router: Router, private userService: identityUserService,
   ) { this.dataSource = new MatTableDataSource(this.users) }
 
   ngOnInit(): void {

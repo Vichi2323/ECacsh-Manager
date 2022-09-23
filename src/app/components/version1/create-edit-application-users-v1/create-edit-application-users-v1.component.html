@@ -1,0 +1,56 @@
+<div class="content">
+    <div class="title-button">
+        <h1>Create/Edit User</h1>
+        <span class="example-spacer"></span>
+        <button mat-raised-button form="ngForm" type="submit" [disabled]="!userForm.valid">
+      Save
+    </button>
+    </div>
+    <hr />
+    <form class="create-form" (ngSubmit)="saveUser()" #userForm="ngForm" id="ngForm" novalidate>
+        <div class="item">
+            <p>Find identity user</p>
+
+            <mat-form-field class="example-full-width">
+                <input type="text" matInput [formControl]="searchIdentityUsersControl" [matAutocomplete]="auto" />
+                <mat-icon matSuffix>person_search</mat-icon>
+                <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSearchUserSelectionChanged($event)" [displayWith]="displayFn">
+                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                        {{ option.userName }}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+
+            <mat-form-field class="mat-form-field">
+                <mat-label>Username</mat-label>
+                <input matInput [(ngModel)]="appUser.userName" name="userName" required minlength="2" pattern="^[a-zA-Z]+$" #userName="ngModel" />
+
+                <mat-error *ngIf="userName.errors?.['required']">
+                    First Name is required
+                </mat-error>
+
+                <mat-error *ngIf="userName.errors?.['minlength']">
+                    First Name Minimum Length is {{ userName.errors?.['minlength']?.requiredLength }}
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="mat-form-field">
+                <mat-label>Email</mat-label>
+                <input matInput [(ngModel)]="appUser.email" name="email" required email #email="ngModel" />
+                <mat-error *ngIf="email.errors?.['required']">
+                    Email is required
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="mat-form-field">
+                <mat-label>Telephone</mat-label>
+                <input matInput placeholder="555-555-1234" [(ngModel)]="appUser.phoneNumber" name="phoneNumber" required #phone="ngModel" />
+                <mat-icon matSuffix>phoneNumber</mat-icon>
+                <mat-error *ngIf="phone.errors?.['required']">
+                    Telephone Number is required
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="item-1"></div>
+    </form>
+</div>

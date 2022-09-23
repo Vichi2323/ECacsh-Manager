@@ -1,0 +1,29 @@
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+        <button mat-button class="menu-button" (click)="redirectTo('application-usersV1')">
+      <mat-icon>people</mat-icon>
+      <span>User</span>
+    </button>
+        <button mat-button class="menu-button" (click)="redirectTo('environmentsV1')">
+      <mat-icon>domain</mat-icon>
+      <span>Environment</span>
+    </button>
+        <h3>IDENTITY SERVER</h3>
+        <mat-divider></mat-divider>
+        <button mat-button class="menu-button" (click)="redirectTo('identity-usersV1')">
+      <mat-icon>perm_identity</mat-icon>
+      <span>Identity User</span>
+    </button>
+        <h3>OPERATIONS</h3>
+        <mat-divider></mat-divider>
+        <button mat-button class="menu-button" (click)="redirectTo('database-serverV1')">
+      <mat-icon>dataset_linked</mat-icon>
+      <span>Database Server</span>
+    </button>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

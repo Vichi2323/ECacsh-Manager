@@ -1,0 +1,46 @@
+<div class="content">
+    <div class="title-button">
+        <h1>Create Environment</h1>
+        <span class="example-spacer"></span>
+        <button mat-raised-button form="ngForm" type="submit" [disabled]="!environmentForm.valid">
+      Save
+    </button>
+    </div>
+    <hr />
+    <form class="create-form" (ngSubmit)="saveEnvironment()" #environmentForm="ngForm" id="ngForm" novalidate>
+        <div class="item">
+            <p>Find Environments</p>
+
+            <mat-form-field class="example-full-width">
+                <input type="text" matInput [formControl]="searchEnvironmentControl" [matAutocomplete]="auto" />
+                <mat-icon matSuffix>person_search</mat-icon>
+                <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSearchEnvironmentSelectionChanged($event)" [displayWith]="displayFn">
+                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                        {{ option.name }}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+            <mat-form-field class="mat-form-field">
+                <mat-label>Environment name</mat-label>
+                <input matInput [(ngModel)]="environment.name" name="name" required minlength="2" pattern="^[a-zA-Z]+$" #name="ngModel" />
+
+                <mat-error *ngIf="name.errors?.['required']">
+                    Name is required
+                </mat-error>
+
+                <mat-error *ngIf="name.errors?.['minlength']">
+                    Name Minimum Length is {{ name.errors?.['minlength']?.requiredLength }}
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="mat-form-field">
+                <mat-label>Environment region</mat-label>
+                <input matInput [(ngModel)]="environment.environmentRegion" name="environmentRegion" required #environmentRegion="ngModel" />
+
+                <mat-error *ngIf="environmentRegion.errors?.['required']">
+                    Environment region is required
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="item-1"></div>
+    </form>
+</div>

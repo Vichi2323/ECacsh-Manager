@@ -4,8 +4,9 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { ApplicationUser } from '../models/application-users-model';
-import { ApplicationUserService } from '../backend/resources/application-user/application-user.service';
+import { ApplicationUserService } from '../../backend/resources/application-user/application-user.service';
+import { ApplicationUser } from '../../models/application-users-model';
+
 @Component({
   selector: 'app-application-users-v1',
   templateUrl: './application-users-v1.component.html',
@@ -19,7 +20,7 @@ export class ApplicationUsersV1Component implements OnInit, AfterViewInit {
   currentIndex = -1;
   dataSource!: MatTableDataSource<any>;
 
-  @ViewChild(MatPaginator, { static: false }) paginator!: MatPaginator;
+  @ViewChild(MatPaginator,) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
 
@@ -30,10 +31,6 @@ export class ApplicationUsersV1Component implements OnInit, AfterViewInit {
   }
 
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
 
 
 
@@ -41,6 +38,12 @@ export class ApplicationUsersV1Component implements OnInit, AfterViewInit {
     this.retrieveUsers()
 
   }
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+
 
 
   retrieveUsers(): void {

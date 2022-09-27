@@ -3,8 +3,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { DatabaseServerService } from '../backend/resources/database-server/database-server.service';
-import { DatabaseServer } from '../models/database-server-model';
+import { DatabaseServerService } from '../../backend/resources/database-server/database-server.service';
+import { DatabaseServer } from '../../models/database-server-model';
 
 @Component({
   selector: 'app-database-server-v1',
@@ -43,4 +43,9 @@ export class DatabaseServerV1Component implements OnInit {
   }
 
 
+
+  newDbServer() {
+    var url = 'v1/create-dbserverV1'
+    this.router.navigateByUrl(url);
+  }
 }

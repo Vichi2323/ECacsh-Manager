@@ -3,12 +3,13 @@ import { FormControl } from "@angular/forms";
 import { MatAutocompleteSelectedEvent } from "@angular/material/autocomplete";
 import { ActivatedRoute, Router } from "@angular/router";
 import { map, Observable, startWith } from "rxjs";
+import { ApplicationUserService } from "../../../backend/resources/application-user/application-user.service";
+import { IdentityUserService } from "../../../backend/resources/identity-user/identity-users.service";
+import { ApplicationUser, CreateApplicationUserRequest } from "../../../models/application-users-model";
+import { IdentityUser } from "../../../models/identity-user-model";
 
 
-import { ApplicationUserService } from "../backend/resources/application-user/application-user.service";
-import { IdentityUserService } from "../backend/resources/identity-user/identity-users.service";
-import { CreateApplicationUserRequest } from "../models/application-users-model";
-import { ApplicationUser } from "../models/application-users-model";
+
 @Component({
   selector: 'app-create-edit-application-users-v1',
   templateUrl: './create-edit-application-users-v1.component.html',
@@ -16,9 +17,9 @@ import { ApplicationUser } from "../models/application-users-model";
 })
 export class CreateEditApplicationUsersV1Component implements OnInit {
 
-  identityUsers: ApplicationUser[];
-  searchIdentityUsersControl = new FormControl<string | ApplicationUser>('');
-  filteredOptions?: Observable<ApplicationUser[]>;
+  identityUsers: IdentityUser[];
+  searchIdentityUsersControl = new FormControl<string | IdentityUser>('');
+  filteredOptions?: Observable<IdentityUser[]>;
   appUser!: CreateApplicationUserRequest;
   userId: any;
   mode: string;
@@ -53,11 +54,11 @@ export class CreateEditApplicationUsersV1Component implements OnInit {
       })
 
     if (this.userId) {
-
       this.mode = 'edit';
-      this.userService.get(this.userId).subscribe(res => {
-        this.appUser = res;
-      });
+      this.userService.get(this.userId)
+        .subscribe(res => {
+          this.appUser = res;
+        });
 
     } else {
       this.mode = 'create';
@@ -77,7 +78,7 @@ export class CreateEditApplicationUsersV1Component implements OnInit {
 
   onSearchUserSelectionChanged(event: MatAutocompleteSelectedEvent) {
     var user = event.option.value;
-    debugger
+
     this.appUser.identityId = user.id;
     this.appUser.email = user.email;
     this.appUser.phoneNumber = user.phoneNumber;
@@ -93,9 +94,10 @@ export class CreateEditApplicationUsersV1Component implements OnInit {
 
     }
     else if (this.mode === 'edit') {
-      this.userService.update(this.userId, this.appUser).subscribe(res => {
-        window.history.back();
-      });
+      this.userService.update(this.userId, this.appUser)
+        .subscribe(res => {
+          window.history.back();
+        });
     }
 
 

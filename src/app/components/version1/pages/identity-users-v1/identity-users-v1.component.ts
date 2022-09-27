@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { IdentityUserService } from '../backend/resources/identity-user/identity-users.service';
+import { IdentityUserService } from '../../backend/resources/identity-user/identity-users.service';
 import { AfterViewInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { IdentityUser } from '../models/identity-user-model';
+import { IdentityUser } from '../../models/identity-user-model';
 @Component({
   selector: 'app-identity-users-v1',
   templateUrl: './identity-users-v1.component.html',

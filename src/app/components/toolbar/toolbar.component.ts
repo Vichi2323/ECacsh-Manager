@@ -20,7 +20,7 @@ export class ToolbarComponent {
   sidenav!: MatSidenav
 
   constructor(private router: Router) {
-    this.selectedVersion = 'v2/dashboardV2';
+    this.selectedVersion = 'v1/dashboardV1';
   }
 
 
@@ -29,8 +29,8 @@ export class ToolbarComponent {
   }
 
   handleLogoClicked() {
-    this.selectedVersion = 'v2/dashboardV2';
-    this.router.navigate(['v2/dashboardV2']);
+    this.selectedVersion = 'v1/dashboardV1';
+    this.router.navigate(['v1/dashboardV1']);
   }
 
 

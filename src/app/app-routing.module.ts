@@ -3,15 +3,17 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 const routes: Routes = [
-
-  {
-    path: 'v2', loadChildren: () => import('./components/version2/version2-module/version2-module.module')
-      .then(mod => mod.Version2ModuleModule)
-  },
+  { path: '', pathMatch: 'full', redirectTo: 'v1/dashboardV1' },
   {
     path: 'v1', loadChildren: () => import('./components/version1/version1-module/version1-module.module')
       .then(mod => mod.Version1ModuleModule)
   }
+  ,
+  {
+    path: 'v2', loadChildren: () => import('./components/version2/version2-module/version2-module.module')
+      .then(mod => mod.Version2ModuleModule)
+  }
+
 
 
 

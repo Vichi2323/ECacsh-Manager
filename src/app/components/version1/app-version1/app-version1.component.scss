@@ -26,6 +26,13 @@ mat-sidenav-container {
     font-size: 1rem;
 }
 
+.menu-button:visited {
+    color: forestgreen;
+    text-decoration-color: hotpink;
+}
+
+button.mat-focus-indicator:hover {}
+
 mat-icon {
     margin-right: 8px;
     color: #616161;

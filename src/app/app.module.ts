@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,8 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { EnviormentsComponent } from './components/version2/enviorments-v2/enviorments.component';
 import { OrdersComponent } from './components/version2/orders-v2/orders.component';
 import { PaymentComponent } from './components/version2/payment-v2/payment.component';
-import { CreateEditIdentityUsersV1Component } from './components/version1/identity-users-v1/create-edit-identity-users-v1/create-edit-identity-users-v1.component';
-import { IdentityUsersV1Component } from './components/version1/identity-users-v1/identity-users-v1.component'
+import { CreateEditIdentityUsersV1Component } from './components/version1/pages/identity-users-v1/create-edit-identity-users-v1/create-edit-identity-users-v1.component';
+import { IdentityUsersV1Component } from './components/version1/pages/identity-users-v1/identity-users-v1.component'
 import { AppVersion1Component } from './components/version1/app-version1/app-version1.component';
 import { AppVersion2Component } from './components/version2/app-version2/app-version2.component';
 import { ApplicationUsersComponent } from './components/version2/application-users-v2/application-users.component';
@@ -24,14 +23,15 @@ import { AppUsersCreateEditComponent } from './components/version2/create-edit-a
 import { DashboardV2Component } from './components/version2/dashboard-v2/dashboard-v2.component';
 import { Version2ModuleModule } from './components/version2/version2-module/version2-module.module';
 import { Version1ModuleModule } from './components/version1/version1-module/version1-module.module';
-import { DashboardV1Component } from './components/version1/dashboard-v1/dashboard-v1.component';
-import { EnvironmentsV1Component } from './components/version1/environment-v1/environment-v1.component';
-import { ApplicationUsersV1Component } from './components/version1/application-users-v1/application-users-v1.component';
-import { CreateEditApplicationUsersV1Component } from './components/version1/create-edit-application-users-v1/create-edit-application-users-v1.component';
+import { DashboardV1Component } from './components/version1/pages/dashboard-v1/dashboard-v1.component';
+import { EnvironmentsV1Component } from './components/version1/pages/environment-v1/environment-v1.component';
+import { CreateEditApplicationUsersV1Component } from './components/version1/pages/application-users-v1/create-edit-application-users-v1/create-edit-application-users-v1.component';
 import { Toastr, TOASTR_TOKEN } from './toastr.service';
 import { IdentityUserService } from './components/version1/backend/resources/identity-user/identity-users.service';
-import { CreateEnvironmentV1Component } from './components/version1/create-environment-v1/create-environment-v1.component';
-import { DatabaseServerV1Component } from './components/version1/database-server-v1/database-server-v1.component';
+import { CreateEnvironmentV1Component } from './components/version1/pages/environment-v1/create-environment-v1/create-environment-v1.component';
+import { DatabaseServerV1Component } from './components/version1/pages/database-server-v1/database-server-v1.component';
+import { ApplicationUsersV1Component } from './components/version1/pages/application-users-v1/application-users-v1.component';
+import { CreateDatabaseServerV1Component } from './components/version1/pages/database-server-v1/create-database-server-v1/create-database-server-v1.component';
 
 
 // @ts-ignore
@@ -60,6 +60,7 @@ let toastr: Toastr = window['toastr'];
     CreateEditApplicationUsersV1Component,
     CreateEnvironmentV1Component,
     DatabaseServerV1Component,
+    CreateDatabaseServerV1Component,
 
   ],
   imports: [
@@ -84,4 +85,3 @@ let toastr: Toastr = window['toastr'];
 export class AppModule { }
 
 
-// provide: TOASTR_TOKEN, useValue: toastr

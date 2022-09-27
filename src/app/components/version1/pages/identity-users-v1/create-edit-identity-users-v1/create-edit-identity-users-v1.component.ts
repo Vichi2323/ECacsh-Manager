@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from "@angular/core";
-import { IdentityUserService } from "../../backend/resources/identity-user/identity-users.service";
+import { IdentityUserService } from "../../../backend/resources/identity-user/identity-users.service";
 import { ActivatedRoute, Router } from "@angular/router";
-import { IdentityUser, CreateIdentityUserRequest } from "../../models/identity-user-model";
+import { IdentityUser, CreateIdentityUserRequest } from "../../../models/identity-user-model";
 import { Toastr, TOASTR_TOKEN } from "src/app/toastr.service";
 
 @Component({

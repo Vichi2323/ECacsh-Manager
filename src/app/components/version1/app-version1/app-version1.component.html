@@ -1,5 +1,9 @@
 <mat-sidenav-container>
     <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+        <button mat-button class="menu-button" (click)="redirectTo('dashboardV1')">
+      <mat-icon>home</mat-icon>
+      <span>Home</span>
+    </button>
         <button mat-button class="menu-button" (click)="redirectTo('application-usersV1')">
       <mat-icon>people</mat-icon>
       <span>User</span>

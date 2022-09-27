@@ -9,13 +9,11 @@ import { EnviormentsComponent } from '../enviorments-v2/enviorments.component';
 import { IdentityUsersComponent } from '../identity-users-v2/identity-users.component';
 import { OrdersComponent } from '../orders-v2/orders.component';
 import { PaymentComponent } from '../payment-v2/payment.component';
-import { ApplicationUsersV1Component } from '../../version1/application-users-v1/application-users-v1.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'v2/dashboardV2' },
+
   {
     path: 'v2', component: AppVersion2Component,
-
     children: [
       { path: 'identity-users', component: IdentityUsersComponent },
       { path: 'enviorments', component: EnviormentsComponent },

@@ -6,6 +6,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { IdentityUser } from '../../models/identity-user-model';
+
 @Component({
   selector: 'app-identity-users-v1',
   templateUrl: './identity-users-v1.component.html',
@@ -17,6 +18,8 @@ export class IdentityUsersV1Component implements OnInit, AfterViewInit {
   users?: IdentityUser[]
   dataSource!: MatTableDataSource<any>;
 
+  isListLoading = true;
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -24,13 +27,17 @@ export class IdentityUsersV1Component implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+
   }
 
   constructor(private router: Router, private userService: IdentityUserService
-  ) { this.dataSource = new MatTableDataSource(this.users) }
+  ) {
+    this.dataSource = new MatTableDataSource(this.users)
+  }
 
   ngOnInit(): void {
     this.retrieveUsers()
+
   }
 
   retrieveUsers(): void {
@@ -38,7 +45,7 @@ export class IdentityUsersV1Component implements OnInit, AfterViewInit {
       .subscribe((res) => {
         this.users = res;
         this.dataSource = new MatTableDataSource<any>(this.users);
-
+        this.isListLoading = false;
       })
   }
 

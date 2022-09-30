@@ -3,15 +3,15 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { DatabaseServerService } from '../../backend/resources/database-server/database-server.service';
-import { DatabaseServer } from '../../models/database-server-model';
+import { DatabaseServerService } from 'src/app/components/version1/backend/resources/database-server/database-server.service';
+import { DatabaseServer } from 'src/app/components/version1/models/database-server-model';
 
 @Component({
-  selector: 'app-database-server-v1',
-  templateUrl: './database-server-v1.component.html',
-  styleUrls: ['./database-server-v1.component.scss']
+  selector: 'app-database-server-v2',
+  templateUrl: './database-server-v2.component.html',
+  styleUrls: ['./database-server-v2.component.scss']
 })
-export class DatabaseServerV1Component implements OnInit {
+export class DatabaseServerV2Component implements OnInit {
 
   displayedColumns: any[] = ["name", "connectionString", "isDefault", "maxEnvironments", "numberOfEnvironments"]
   dataSource!: MatTableDataSource<any>
@@ -45,7 +45,7 @@ export class DatabaseServerV1Component implements OnInit {
 
 
   newDbServer() {
-    var url = 'v2/create-dbserverV2'
+    var url = 'v1/create-dbserverV1'
     this.router.navigateByUrl(url);
   }
 }

@@ -1,4 +1,5 @@
-<div class="content">
+<mat-spinner *ngIf="isListLoading"></mat-spinner>
+<div class="content" *ngIf="!isListLoading">
     <div class="title-button">
         <h1>Identity Users</h1>
         <span class="example-spacer"></span>

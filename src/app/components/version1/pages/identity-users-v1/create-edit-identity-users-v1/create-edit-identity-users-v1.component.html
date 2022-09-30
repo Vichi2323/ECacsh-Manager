@@ -18,7 +18,7 @@
             </mat-form-field>
             <mat-form-field class="mat-form-field">
                 <mat-label>Username</mat-label>
-                <input matInput [(ngModel)]="user.userName" name="userName" required pattern="^[a-zA-Z0-9]+$" #userName="ngModel" />
+                <input matInput [(ngModel)]="user.userName" name="userName" #userName="ngModel" />
 
                 <mat-error *ngIf="userName.errors?.['required']">
                     Username is required

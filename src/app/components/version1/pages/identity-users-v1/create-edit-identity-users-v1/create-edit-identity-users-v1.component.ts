@@ -14,6 +14,7 @@ export class CreateEditIdentityUsersV1Component implements OnInit {
   user!: CreateIdentityUserRequest;
   userId: any;
   mode: string;
+
   constructor(private router: Router, private userService: IdentityUserService, private activatedRoute: ActivatedRoute, @Inject(TOASTR_TOKEN) private toastr: Toastr) {
     this.mode = '';
     this.user = {};
@@ -44,19 +45,15 @@ export class CreateEditIdentityUsersV1Component implements OnInit {
   }
 
   saveUser() {
-
     if (this.mode === 'create') {
       this.userService.create(this.user).subscribe(res => {
 
         this.toastr.success("User successfully saved ")
         window.history.back();
 
-
-
-
+      }, err => {
+        this.toastr.error("Username of email already taken.", "Error");
       });
-
-
     }
     else if (this.mode === 'edit') {
       this.userService.update(this.userId, this.user).subscribe(res => {

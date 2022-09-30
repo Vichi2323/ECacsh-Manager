@@ -1,15 +1,15 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DatabaseServerService } from '../../../backend/resources/database-server/database-server.service';
+import { DatabaseServerService } from 'src/app/components/version1/backend/resources/database-server/database-server.service';
+import { DatabaseServer } from 'src/app/components/version1/models/database-server-model';
 import { Toastr, TOASTR_TOKEN } from "src/app/toastr.service";
-import { DatabaseServer } from '../../../models/database-server-model';
 
 @Component({
-  selector: 'app-create-database-server-v1',
-  templateUrl: './create-database-server-v1.component.html',
-  styleUrls: ['./create-database-server-v1.component.scss']
+  selector: 'app-create-database-server-v2',
+  templateUrl: './create-database-server-v2.component.html',
+  styleUrls: ['./create-database-server-v2.component.scss']
 })
-export class CreateDatabaseServerV1Component implements OnInit {
+export class CreateDatabaseServerV2Component implements OnInit {
 
   dbServer!: DatabaseServer;
   dbServerId: any;

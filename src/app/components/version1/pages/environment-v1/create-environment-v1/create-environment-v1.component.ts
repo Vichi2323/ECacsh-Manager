@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { ActivatedRoute } from '@angular/router';
@@ -7,6 +7,8 @@ import { DatabaseServerService } from '../../../backend/resources/database-serve
 import { EnvironmentService } from '../../../backend/resources/environment/environment.service';
 import { DatabaseServer } from '../../../models/database-server-model';
 import { CreateEnvironmentRequest, Environment } from '../../../models/environment-model';
+import { Toastr, TOASTR_TOKEN } from "src/app/toastr.service";
+
 
 @Component({
   selector: 'app-create-environment-v1',
@@ -22,7 +24,7 @@ export class CreateEnvironmentV1Component implements OnInit {
   environmentId?: any
   mode?: string
 
-  constructor(private dbService: DatabaseServerService, private environmentService: EnvironmentService, private activatedRoute: ActivatedRoute) {
+  constructor(private dbService: DatabaseServerService, private environmentService: EnvironmentService, private activatedRoute: ActivatedRoute, @Inject(TOASTR_TOKEN) private toastr: Toastr) {
     this.mode = ''
     this.environment = {}
     this.dbServers = []
@@ -77,7 +79,10 @@ export class CreateEnvironmentV1Component implements OnInit {
     if (this.mode === 'create') {
       this.environmentService.create(this.environment)
         .subscribe(res => {
+          this.toastr.success("Environment successfully saved ")
           window.history.back()
+        }, err => {
+          this.toastr.error("Environment name already taken.", "Error")
         })
     }
     else if (this.mode === 'edit') {

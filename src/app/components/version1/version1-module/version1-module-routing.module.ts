@@ -11,6 +11,7 @@ import { CreateEditApplicationUsersV1Component } from '../pages/application-user
 import { CreateEditIdentityUsersV1Component } from '../pages/identity-users-v1/create-edit-identity-users-v1/create-edit-identity-users-v1.component';
 import { IdentityUsersV1Component } from '../pages/identity-users-v1/identity-users-v1.component';
 import { CreateDatabaseServerV1Component } from '../pages/database-server-v1/create-database-server-v1/create-database-server-v1.component';
+import { EnvironmentUserV1Component } from '../pages/environment-v1/environment-user-v1/environment-user-v1.component';
 
 const routes: Routes = [
 
@@ -27,7 +28,8 @@ const routes: Routes = [
       { path: 'app-users-create-editV1', component: CreateEditApplicationUsersV1Component },
       { path: 'create-environmentV1', component: CreateEnvironmentV1Component },
       { path: 'database-serverV1', component: DatabaseServerV1Component },
-      { path: 'create-dbserverV1', component: CreateDatabaseServerV1Component }
+      { path: 'create-dbserverV1', component: CreateDatabaseServerV1Component },
+      { path: 'app-environment-user-v1', component: EnvironmentUserV1Component }
     ]
   },
 

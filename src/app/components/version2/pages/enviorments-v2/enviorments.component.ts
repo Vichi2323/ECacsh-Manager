@@ -5,14 +5,14 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { Environment } from '../../models/environment-model';
-import { EnvironmentService } from '../../backend/resources/environment/environment.service';
+import { EnvironmentService } from 'src/app/components/version1/backend/resources/environment/environment.service';
+import { Environment } from 'src/app/components/version1/models/environment-model';
 @Component({
-  selector: 'app- environments-v1',
-  templateUrl: './environment-v1.component.html',
-  styleUrls: ['./environment-v1.component.scss']
+  selector: 'app-enviorments',
+  templateUrl: './enviorments.component.html',
+  styleUrls: ['./enviorments.component.scss']
 })
-export class EnvironmentsV1Component implements OnInit, AfterViewInit {
+export class EnviormentsComponent implements OnInit, AfterViewInit {
 
   displayedColumns: any[] = ["name", "environmentRegion", "actions"];
   environments?: Environment[]
@@ -76,20 +76,13 @@ export class EnvironmentsV1Component implements OnInit, AfterViewInit {
     this.router.navigateByUrl(url);
   }
 
-  // editEnvironment(userId: number) {
-  //   var url = 'v1/app-environment-user-v1' + userId;
-  //   this.router.navigateByUrl(url);
-  // }
-
-
   editEnvironment(userId: number) {
-    var url = 'v1/app-environment-user-v1';
+    var url = 'v1/create-environmentV1' + userId;
     this.router.navigateByUrl(url);
   }
 
 
+
+
+
 }
-
-
-
-

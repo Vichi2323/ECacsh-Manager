@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from "@angular/core";
+import { Component, inject, Inject, OnInit } from "@angular/core";
 import { FormControl } from "@angular/forms";
 import { MatAutocompleteSelectedEvent } from "@angular/material/autocomplete";
 import { ActivatedRoute, Router } from "@angular/router";
@@ -7,6 +7,8 @@ import { ApplicationUserService } from "../../../backend/resources/application-u
 import { IdentityUserService } from "../../../backend/resources/identity-user/identity-users.service";
 import { ApplicationUser, CreateApplicationUserRequest } from "../../../models/application-users-model";
 import { IdentityUser } from "../../../models/identity-user-model";
+import { Toastr, TOASTR_TOKEN } from "src/app/toastr.service";
+
 
 
 
@@ -24,7 +26,7 @@ export class CreateEditApplicationUsersV1Component implements OnInit {
   userId: any;
   mode: string;
 
-  constructor(private identityUserservice: IdentityUserService, private userService: ApplicationUserService, private activatedRoute: ActivatedRoute) {
+  constructor(private identityUserservice: IdentityUserService, private userService: ApplicationUserService, private activatedRoute: ActivatedRoute, @Inject(TOASTR_TOKEN) private toastr: Toastr) {
     this.mode = '';
     this.appUser = {};
     this.identityUsers = [];
@@ -88,9 +90,13 @@ export class CreateEditApplicationUsersV1Component implements OnInit {
   saveUser() {
 
     if (this.mode === 'create') {
-      this.userService.create(this.appUser).subscribe(res => {
-        window.history.back();
-      });
+      this.userService.create(this.appUser)
+        .subscribe(res => {
+          this.toastr.success("User successfully saved ")
+          window.history.back();
+        }, err => {
+          this.toastr.error("Username of email already taken.", "Error");
+        });
 
     }
     else if (this.mode === 'edit') {

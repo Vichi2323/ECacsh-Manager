@@ -30,11 +30,8 @@ export class DatabaseServerService {
     delete(id: any): Observable<DatabaseServer> {
         return this.apiService.delete(resourceId + '/' + id);
     }
-    disableUser(id: any): Observable<any> {
-        return this.apiService.post(resourceId + '/' + id + '/disable', {});
-    }
-    enableUser(id: any): Observable<any> {
-        return this.apiService.post(resourceId + '/' + id + '/enable', {});
+    makeDefault(id: any): Observable<any> {
+        return this.apiService.post(resourceId + '/' + id + '/makeDefault', {});
     }
 
 }

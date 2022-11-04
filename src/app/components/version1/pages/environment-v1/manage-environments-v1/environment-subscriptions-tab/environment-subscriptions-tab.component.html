@@ -1,0 +1,121 @@
+<mat-card>
+    <div class="input-fields">
+        <div class="item">
+            <mat-form-field class="mat-form-field">
+                <mat-label>Number of locations</mat-label>
+                <input type="number" matInput name="numOfLocations" required numOfLocations #numOfLocations="ngModel" [(ngModel)]="newEnvironmentSubscrption.numOfLocations" />
+                <mat-error> Number of locations is required </mat-error>
+            </mat-form-field>
+            <mat-form-field class="mat-form-field">
+                <mat-label>Number of poses</mat-label>
+                <input type="number" matInput name="numOfPoses" required numOfPoses #numOfPoses="ngModel" [(ngModel)]="newEnvironmentSubscrption.numOfPoses" />
+                <mat-error> Number of poses is required </mat-error>
+            </mat-form-field>
+            <mat-form-field class="mat-form-field">
+                <mat-label>Number of mobile poses</mat-label>
+                <input type="number" matInput name="numOfMobilePoses" required numOfMobilePoses #numOfMobilePoses="ngModel" [(ngModel)]="newEnvironmentSubscrption.numOfMobilePoses" />
+                <mat-error> Number of poses is required </mat-error>
+            </mat-form-field>
+            <mat-form-field class="mat-form-field">
+                <mat-label>Expiry Date</mat-label>
+                <input type="date" matInput name="expiryDate" required expiryDate #numOfMobilePoses="ngModel" [(ngModel)]="newEnvironmentSubscrption.expiryDate" />
+                <mat-error> Number of poses is required </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="modules-div">
+            <h1>Modules</h1>
+            <mat-card class="card">
+                <div class="card-item">
+                    <label class="radio-label-warehouse">Is Warehousing Enabled</label>
+                    <br />
+                    <mat-radio-group aria-label="Select an option" class="radio-input" name="isWarehousingEnabled" #isWarehousingEnabled="ngModel" [(ngModel)]="newEnvironmentSubscrption.isWarehousingEnabled">
+                        <mat-radio-button [value]="true">Yes</mat-radio-button>
+                        <mat-radio-button [value]="false" id="no-radio-button">No</mat-radio-button>
+                    </mat-radio-group>
+
+                    <mat-form-field class="mat-form-field">
+                        <mat-label>Number of Warehouses</mat-label>
+                        <input type="number" matInput name="numberOfWarehouses" required numberOfWarehouses #numberOfWarehouses="ngModel" [(ngModel)]="newEnvironmentSubscrption.numberOfWarehouses" />
+                        <mat-error>Number of Warehouses enabled is required </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="card-item-1">
+                    <label class="radio-label">Is Invoicing Enabled</label>
+                    <mat-radio-group aria-label="Select an option" class="radio-input" name="isInvoicingEnabled" [(ngModel)]="newEnvironmentSubscrption.isInvoicingEnabled" #isInvoicingEnabled="ngModel">
+                        <mat-radio-button [value]="true">Yes</mat-radio-button>
+                        <mat-radio-button [value]="false">No</mat-radio-button>
+                    </mat-radio-group>
+                    <br />
+                    <label class="radio-label">Is Accounting Jurnal Enabled</label>
+                    <mat-radio-group aria-label="Select an option" class="radio-input" name="isAccountingJournalEnabled" [(ngModel)]="newEnvironmentSubscrption.isAccountingJournalEnabled" #isAccountingJournalEnabled="ngModel">
+                        <mat-radio-button [value]="true">Yes</mat-radio-button>
+                        <mat-radio-button [value]="false">No</mat-radio-button>
+                    </mat-radio-group>
+                    <br />
+                    <label class="radio-label">Is Customers Enabled</label>
+                    <mat-radio-group aria-label="Select an option" class="radio-input" name="isCustomersEnabled" [(ngModel)]="newEnvironmentSubscrption.isCustomersEnabled" #isCustomersEnabled="ngModel">
+                        <mat-radio-button [value]="true">Yes</mat-radio-button>
+                        <mat-radio-button [value]="false">No</mat-radio-button>
+                    </mat-radio-group>
+                    <br />
+                    <label class="radio-label">Is Regular Guest Enabled</label>
+                    <mat-radio-group aria-label="Select an option" class="radio-input" name="isRegularGuestEnabled" [(ngModel)]="newEnvironmentSubscrption.isRegularGuestEnabled" #isRegularGuestEnabled="ngModel">
+                        <mat-radio-button [value]="true">Yes</mat-radio-button>
+                        <mat-radio-button [value]="false">No</mat-radio-button>
+                    </mat-radio-group>
+                    <br />
+                    <label class="radio-label">Is Delivery Enabled</label>
+                    <mat-radio-group aria-label="Select an option" class="radio-input" name="isDeliveryEnabled" [(ngModel)]="newEnvironmentSubscrption.isDeliveryEnabled" #isDeliveryEnabled="ngModel">
+                        <mat-radio-button [value]="true">Yes</mat-radio-button>
+                        <mat-radio-button [value]="false">No</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+            </mat-card>
+        </div>
+
+        <button class="add-button" mat-raised-button (click)="addSubscription()">
+      Add Subscription
+    </button>
+    </div>
+</mat-card>
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="startDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Start Date</th>
+            <td mat-cell *matCellDef="let row">{{ row.startDate }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="expiryDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Expiry Date</th>
+            <td mat-cell *matCellDef="let row">{{ row.expiryDate }}</td>
+        </ng-container>
+        <ng-container matColumnDef="cancelDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Cancel Date</th>
+            <td mat-cell *matCellDef="let row">{{ row.cancelDate }}</td>
+        </ng-container>
+        <ng-container matColumnDef="active">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Active</th>
+            <td mat-cell *matCellDef="let row">{{ row.active }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Actions</th>
+            <td mat-cell *matCellDef="let row">
+                <button mat-icon-button (click)="openDialog(row)">
+          <mat-icon id="edit-icon">settings</mat-icon>
+        </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+        <tr class="mat-row" *matNoDataRow>
+            <!-- <td class="mat-cell" colspan="4">
+                            No data matching the filter "{{ input.value }}"
+                        </td> -->
+        </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+</div>

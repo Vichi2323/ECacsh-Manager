@@ -1,0 +1,27 @@
+<div class="content">
+    <div class="title-button">
+        <button class="back-button" (click)="back()">
+      <mat-icon id="arrow-back">arrow_back</mat-icon>
+    </button>
+        <div class="h1-info">
+            <h1>Manage Enviorment</h1>
+
+            <div class="environment-info">Name: {{ environment.name }}</div>
+            <div class="environment-info">
+                Region: {{ environment.environmentRegion?.getKey() }}
+            </div>
+            <div class="environment-info">
+                Database Server: {{ environment.dbServer }}
+            </div>
+        </div>
+    </div>
+    <hr />
+    <mat-tab-group mat-align-tabs="start">
+        <mat-tab label="Users">
+            <app-environment-users-tab [environment]="this.environment"></app-environment-users-tab>
+        </mat-tab>
+        <mat-tab label="Subscriptions">
+            <app-environment-subscriptions-tab [environment]="this.environment"></app-environment-subscriptions-tab>
+        </mat-tab>
+    </mat-tab-group>
+</div>

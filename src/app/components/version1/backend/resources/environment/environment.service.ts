@@ -30,5 +30,12 @@ export class EnvironmentService {
     delete(id: any): Observable<Environment> {
         return this.apiService.delete(resourceId + '/' + id);
     }
+    assignUser(environmentId: any, userId: any): Observable<Environment> {
+        return this.apiService.post(`${resourceId}/${environmentId}/applicationUser/${userId}/assign`);
+    }
+    addEnvironmentSubscription(environmentId: any, data: any) {
+        let request = this.mapper.mapAddEnvironmentSubscription(data);
+        return this.apiService.post(resourceId + '/' + environmentId + '/environmentSubscription', request);
+    }
 
 }

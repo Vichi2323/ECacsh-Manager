@@ -2,8 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
+import { Data, Router } from '@angular/router';
 import { DatabaseServerService } from '../../backend/resources/database-server/database-server.service';
+import { NavigationService } from '../../backend/resources/navigation-service';
 import { DatabaseServer } from '../../models/database-server-model';
 
 @Component({
@@ -13,8 +14,8 @@ import { DatabaseServer } from '../../models/database-server-model';
 })
 export class DatabaseServerV1Component implements OnInit {
 
-  displayedColumns: any[] = ["name", "connectionString", "isDefault", "maxEnvironments", "numberOfEnvironments"]
-  dataSource!: MatTableDataSource<any>
+  displayedColumns: any[] = ["name", "connectionString", "maxEnvironments", "numberOfEnvironments", "isDefault"]
+  dataSource!: MatTableDataSource<DatabaseServer>
   dbServers?: DatabaseServer[]
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -26,7 +27,7 @@ export class DatabaseServerV1Component implements OnInit {
     this.dataSource.sort = this.sort;
   }
 
-  constructor(private router: Router, private dbService: DatabaseServerService) {
+  constructor(private router: Router, private dbService: DatabaseServerService, private navigate: NavigationService) {
     this.dataSource = new MatTableDataSource(this.dbServers)
   }
 
@@ -42,10 +43,42 @@ export class DatabaseServerV1Component implements OnInit {
       })
   }
 
-
-
   newDbServer() {
-    var url = 'v2/create-dbserverV2'
+    var url = 'v1/create-dbserverV1'
     this.router.navigateByUrl(url);
+  }
+
+  toggleIsDefault(makeDefaultId: any, value: boolean) {
+    this.dbService.makeDefault(makeDefaultId)
+      .subscribe()
+
+
+    var previouslyToggledElement = this.findToggledElement(makeDefaultId, this.dataSource.data);
+    if (previouslyToggledElement)
+      previouslyToggledElement.isDefault = false;
+
+    // find element from array that has toggled IsDefault.
+
+    // this.dataSource.data.forEach(element => {
+    //   if (element.id != makeDefaultId)
+    //     element.isDefault = false;
+    // }
+    // );
+
+
+  }
+
+  findToggledElement(newToggledId: any, collection: DatabaseServer[]): DatabaseServer | null {
+    for (let i = 0; i < collection.length; i++) {
+      if (collection[i].isDefault && collection[i].id !== newToggledId) {
+        return collection[i];
+      }
+    }
+    return null
+  }
+
+
+  back() {
+    this.navigate.back()
   }
 }

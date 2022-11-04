@@ -35,8 +35,10 @@ import { CreateDatabaseServerV1Component } from './components/version1/pages/dat
 import { ApplicationComponent } from './components/version2/pages/application/application.component';
 import { DatabaseServerV2Component } from './components/version2/pages/database-server-v2/database-server-v2.component';
 import { CreateDatabaseServerV2Component } from './components/version2/pages/database-server-v2/create-database-server-v2/create-database-server-v2.component';
-import { EnvironmentUserV1Component } from './components/version1/pages/environment-v1/environment-user-v1/environment-user-v1.component';
-
+import { ManageEnvironmentsV1Component } from './components/version1/pages/environment-v1/manage-environments-v1/manage-environments-v1.component';
+import { EnvironmentUsersTabComponent } from './components/version1/pages/environment-v1/manage-environments-v1/environment-users-tab/environment-users-tab.component';
+import { EnvironmentSubscriptionsTabComponent } from './components/version1/pages/environment-v1/manage-environments-v1/environment-subscriptions-tab/environment-subscriptions-tab.component';
+import { SubscriptionEditDialogComponent } from './components/version1/pages/environment-v1/manage-environments-v1/subscription-edit-dialog/subscription-edit-dialog.component';
 
 // @ts-ignore
 let toastr: Toastr = window['toastr'];
@@ -68,7 +70,11 @@ let toastr: Toastr = window['toastr'];
     ApplicationComponent,
     DatabaseServerV2Component,
     CreateDatabaseServerV2Component,
-    EnvironmentUserV1Component,
+    ManageEnvironmentsV1Component,
+    EnvironmentUsersTabComponent,
+    EnvironmentSubscriptionsTabComponent,
+    SubscriptionEditDialogComponent,
+
 
   ],
   imports: [

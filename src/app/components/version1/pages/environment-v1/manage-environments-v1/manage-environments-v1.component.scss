@@ -6,11 +6,6 @@
     color: whitesmoke;
 }
 
-.page-label {
-    color: #616161;
-    font-size: 25px;
-}
-
 mat-form-field {
     font-size: 14px;
     margin-bottom: 20px;
@@ -19,8 +14,34 @@ mat-form-field {
     color: #616161 !important;
 }
 
-.example-spacer {
-    width: 700px;
+.add-user-input-button {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.h1-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 25px;
+}
+
+.environment-card {
+    font-size: medium;
+    box-sizing: content-box;
+    width: 65%;
+    padding: 10px;
+}
+
+.card-info {
+    display: block;
+    margin-right: 300px;
+}
+
+.environment-info {
+    font-size: 1rem;
+    color: #616161;
 }
 
 thead {
@@ -66,16 +87,16 @@ td {
 .title-button {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    // justify-content: space-between;
     align-items: center;
-    margin-bottom: -50px;
-    margin-top: -50px;
+    margin-bottom: -20px;
+    margin-top: -10px;
 }
 
 h1 {
     color: #616161;
     font-size: 25px;
-    position: absolute;
+    // position: absolute;
 }
 
 hr {
@@ -98,6 +119,12 @@ hr {
 mat-paginator {
     background-color: white;
     color: #616161;
+}
+
+#delete-icon {
+    color: #ff5252;
+    caret-color: #ff5252;
+    transform: scale(0.8);
 }
 
 #edit-icon {
@@ -168,8 +195,29 @@ mat-paginator {
     background-color: #616161;
 }
 
+:host ::ng-deep.mat-slide-toggle-thumb {
+    width: 10px !important;
+    height: 10px !important;
+    transform: translate(50%, 50%);
+}
+
+:host ::ng-deep.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+    background-color: #D3D3D3;
+}
+
+:host ::ng-deep.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+    background-color: #1976d2;
+}
+
+p {
+    color: #2D3142;
+    font-size: small;
+    margin-top: 40px;
+    margin-bottom: -40px;
+}
+
 .back-button {
-    margin-bottom: 7px;
+    margin-bottom: 75px;
     margin-left: -60px;
     border: none;
     background-color: transparent;
@@ -183,4 +231,14 @@ mat-paginator {
     color: #616161;
     cursor: pointer;
     font-size: 23px !important
+}
+
+.mat-tab-label {
+    background: #e7e7e7;
+    color: black;
+    min-width: 60px!important;
+}
+
+::ng-deep .mat-tab-group.mat-primary .mat-ink-bar {
+    background-color: #1976d2 !important;
 }

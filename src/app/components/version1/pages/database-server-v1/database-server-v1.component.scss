@@ -65,12 +65,13 @@ td {
     justify-content: space-between;
     align-items: center;
     margin-bottom: -50px;
-    margin-top: -20px;
+    margin-top: -50px;
 }
 
 h1 {
     color: #616161;
     font-size: 25px;
+    position: absolute;
 }
 
 hr {
@@ -203,4 +204,21 @@ td {
     width: auto;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+.back-button {
+    margin-bottom: 7px;
+    margin-left: -60px;
+    border: none;
+    background-color: transparent;
+}
+
+#arrow-back:hover {
+    color: #1976d2
+}
+
+#arrow-back {
+    color: #616161;
+    cursor: pointer;
+    font-size: 23px !important
 }

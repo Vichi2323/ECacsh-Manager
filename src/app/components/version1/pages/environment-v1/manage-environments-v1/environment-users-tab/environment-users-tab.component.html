@@ -1,0 +1,46 @@
+<mat-card>
+    <div>
+        <p>Add user to environment</p>
+        <div class="add-user-input-button">
+            <mat-form-field class="example-full-width">
+                <input type="text" matInput [formControl]="searchAppUsersControl" [matAutocomplete]="auto" />
+                <mat-icon matSuffix>person_search</mat-icon>
+                <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSearchUserSelectionChanged($event)" [displayWith]="displayFn">
+                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                        {{ option.userName }}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+
+            <mat-card class="environment-card">
+                <div class="card-info">Username: {{ appUser?.userName }}</div>
+                <div class="card-info">Email: {{ appUser?.email }}</div>
+            </mat-card>
+            <button mat-raised-button (click)="onAddUserClicked()">Add User</button>
+        </div>
+    </div>
+</mat-card>
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="userName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>User Name</th>
+            <td mat-cell *matCellDef="let row">{{ row.userName }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+            <td mat-cell *matCellDef="let row">{{ row.email }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+        <tr class="mat-row" *matNoDataRow>
+            <!-- <td class="mat-cell" colspan="4">
+                            No data matching the filter "{{ input.value }}"
+                        </td> -->
+        </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+</div>

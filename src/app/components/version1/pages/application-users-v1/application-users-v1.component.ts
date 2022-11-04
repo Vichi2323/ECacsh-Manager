@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AfterViewInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
@@ -5,6 +6,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { ApplicationUserService } from '../../backend/resources/application-user/application-user.service';
+import { NavigationService } from '../../backend/resources/navigation-service';
 import { ApplicationUser } from '../../models/application-users-model';
 
 @Component({
@@ -25,8 +27,7 @@ export class ApplicationUsersV1Component implements OnInit, AfterViewInit {
 
 
 
-  constructor(private router: Router, private userService: ApplicationUserService,
-  ) {
+  constructor(private router: Router, private userService: ApplicationUserService, private navigate: NavigationService) {
     this.dataSource = new MatTableDataSource(this.appUsers)
   }
 
@@ -82,6 +83,10 @@ export class ApplicationUsersV1Component implements OnInit, AfterViewInit {
   editAppUser(userId: number) {
     var url = 'v1/create-editV1/' + userId;
     this.router.navigateByUrl(url);
+  }
+
+  back() {
+    this.navigate.back()
   }
 
 

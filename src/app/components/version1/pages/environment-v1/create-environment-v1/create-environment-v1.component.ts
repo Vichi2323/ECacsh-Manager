@@ -8,6 +8,7 @@ import { EnvironmentService } from '../../../backend/resources/environment/envir
 import { DatabaseServer } from '../../../models/database-server-model';
 import { CreateEnvironmentRequest, Environment } from '../../../models/environment-model';
 import { Toastr, TOASTR_TOKEN } from "src/app/toastr.service";
+import { NavigationService } from '../../../backend/resources/navigation-service';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class CreateEnvironmentV1Component implements OnInit {
   environmentId?: any
   mode?: string
 
-  constructor(private dbService: DatabaseServerService, private environmentService: EnvironmentService, private activatedRoute: ActivatedRoute, @Inject(TOASTR_TOKEN) private toastr: Toastr) {
+  constructor(private dbService: DatabaseServerService, private environmentService: EnvironmentService, private activatedRoute: ActivatedRoute, private navigation: NavigationService, @Inject(TOASTR_TOKEN) private toastr: Toastr) {
     this.mode = ''
     this.environment = {}
     this.dbServers = []
@@ -91,6 +92,11 @@ export class CreateEnvironmentV1Component implements OnInit {
           window.history.back()
         })
     }
+  }
+
+
+  back() {
+    this.navigation.back()
   }
 
 

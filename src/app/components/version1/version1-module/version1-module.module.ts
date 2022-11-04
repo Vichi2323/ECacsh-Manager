@@ -8,6 +8,8 @@ import { ApplicationUserService } from '../backend/resources/application-user/ap
 import { IdentityUserMapper } from '../backend/resources/identity-user/identity-user-mapper.service';
 import { ApplicationUserMapper } from '../backend/resources/application-user/application-user-mapper.service';
 import { IdentityUserService } from '../backend/resources/identity-user/identity-users.service';
+import { EnvironmentMockService } from '../backend/resources/environment/environment-mock.service';
+import { NavigationService } from '../backend/resources/navigation-service';
 
 
 
@@ -24,7 +26,8 @@ import { IdentityUserService } from '../backend/resources/identity-user/identity
     ApplicationUserService,
     IdentityUserMapper,
     ApplicationUserMapper,
-
+    EnvironmentMockService,
+    NavigationService
   ]
 })
 export class Version1ModuleModule { }

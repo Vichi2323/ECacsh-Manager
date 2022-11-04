@@ -7,6 +7,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Environment } from '../../models/environment-model';
 import { EnvironmentService } from '../../backend/resources/environment/environment.service';
+import { NavigationService } from '../../backend/resources/navigation-service';
+
 @Component({
   selector: 'app- environments-v1',
   templateUrl: './environment-v1.component.html',
@@ -26,7 +28,7 @@ export class EnvironmentsV1Component implements OnInit, AfterViewInit {
 
 
 
-  constructor(private router: Router, private userService: EnvironmentService,
+  constructor(private router: Router, private userService: EnvironmentService, private navigation: NavigationService
   ) {
     this.dataSource = new MatTableDataSource(this.environments)
   }
@@ -43,8 +45,6 @@ export class EnvironmentsV1Component implements OnInit, AfterViewInit {
     this.getEnvironments()
 
   }
-
-
   getEnvironments(): void {
 
     this.userService.getAll()
@@ -54,10 +54,6 @@ export class EnvironmentsV1Component implements OnInit, AfterViewInit {
 
       })
   }
-
-
-
-
 
 
 
@@ -82,11 +78,15 @@ export class EnvironmentsV1Component implements OnInit, AfterViewInit {
   // }
 
 
-  editEnvironment(userId: number) {
-    var url = 'v1/app-environment-user-v1';
+  editEnvironment(id: string) {
+    var url = 'v1/app-environment-user-v1/' + id;
     this.router.navigateByUrl(url);
   }
 
+
+  back() {
+    this.navigation.back()
+  }
 
 }
 

@@ -8,6 +8,7 @@ import { IdentityUserService } from "../../../backend/resources/identity-user/id
 import { ApplicationUser, CreateApplicationUserRequest } from "../../../models/application-users-model";
 import { IdentityUser } from "../../../models/identity-user-model";
 import { Toastr, TOASTR_TOKEN } from "src/app/toastr.service";
+import { NavigationService } from "../../../backend/resources/navigation-service";
 
 
 
@@ -26,7 +27,7 @@ export class CreateEditApplicationUsersV1Component implements OnInit {
   userId: any;
   mode: string;
 
-  constructor(private identityUserservice: IdentityUserService, private userService: ApplicationUserService, private activatedRoute: ActivatedRoute, @Inject(TOASTR_TOKEN) private toastr: Toastr) {
+  constructor(private identityUserservice: IdentityUserService, private userService: ApplicationUserService, private activatedRoute: ActivatedRoute, @Inject(TOASTR_TOKEN) private toastr: Toastr, private navigate: NavigationService) {
     this.mode = '';
     this.appUser = {};
     this.identityUsers = [];
@@ -109,7 +110,9 @@ export class CreateEditApplicationUsersV1Component implements OnInit {
 
   }
 
-
+  back() {
+    this.navigate.back()
+  }
 
 
 

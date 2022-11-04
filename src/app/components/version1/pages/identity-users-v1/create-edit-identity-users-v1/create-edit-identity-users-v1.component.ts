@@ -3,6 +3,7 @@ import { IdentityUserService } from "../../../backend/resources/identity-user/id
 import { ActivatedRoute, Router } from "@angular/router";
 import { IdentityUser, CreateIdentityUserRequest } from "../../../models/identity-user-model";
 import { Toastr, TOASTR_TOKEN } from "src/app/toastr.service";
+import { NavigationService } from "../../../backend/resources/navigation-service";
 
 @Component({
   selector: 'app-create-edit-identity-users-v1',
@@ -15,7 +16,7 @@ export class CreateEditIdentityUsersV1Component implements OnInit {
   userId: any;
   mode: string;
 
-  constructor(private router: Router, private userService: IdentityUserService, private activatedRoute: ActivatedRoute, @Inject(TOASTR_TOKEN) private toastr: Toastr) {
+  constructor(private router: Router, private userService: IdentityUserService, private navigate: NavigationService, private activatedRoute: ActivatedRoute, @Inject(TOASTR_TOKEN) private toastr: Toastr) {
     this.mode = '';
     this.user = {};
   }
@@ -63,5 +64,10 @@ export class CreateEditIdentityUsersV1Component implements OnInit {
 
 
   }
+
+  back() {
+    this.navigate.back()
+  }
+
 
 }

@@ -1,5 +1,9 @@
 <div class="content">
     <div class="title-button">
+        <button class="back-button" (click)="back()">
+      <mat-icon id="arrow-back">arrow_back</mat-icon>
+    </button>
+
         <h1>Create/Edit Users</h1>
         <span class="example-spacer"></span>
         <button mat-raised-button form="ngForm" type="submit" [disabled]="!userForm.valid">

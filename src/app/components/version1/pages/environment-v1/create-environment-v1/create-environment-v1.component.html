@@ -1,5 +1,8 @@
 <div class="content">
     <div class="title-button">
+        <button class="back-button" (click)="back()">
+      <mat-icon id="arrow-back">arrow_back</mat-icon>
+    </button>
         <h1>Create Environment</h1>
         <span class="example-spacer"></span>
         <button mat-raised-button form="ngForm" type="submit" [disabled]="!environmentForm.valid">
@@ -9,7 +12,7 @@
     <hr />
     <form class="create-form" (ngSubmit)="saveEnvironment()" #environmentForm="ngForm" id="ngForm" novalidate>
         <div class="item">
-            <p>Find Environments</p>
+            <p>Find Database Servers</p>
 
             <mat-form-field class="example-full-width">
                 <input type="text" matInput [formControl]="searchEnvironmentControl" [matAutocomplete]="auto" />

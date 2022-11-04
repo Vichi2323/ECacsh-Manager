@@ -19,6 +19,7 @@
         h1 {
             color: #616161;
             font-size: 25px;
+            position: absolute;
         }
         
         mat-form-field.mat-form-field {
@@ -58,6 +59,8 @@
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: -15px;
+            margin-top: -15px;
         }
         
         p {
@@ -136,4 +139,21 @@
         
          ::ng-deep .mat-focused .mat-form-field-underline .mat-form-field-ripple {
             background-color: #2D3142 !important;
+        }
+        
+        .back-button {
+            margin-left: -60px;
+            margin-bottom: 5px;
+            border: none;
+            background-color: transparent;
+        }
+        
+        #arrow-back:hover {
+            color: #1976d2
+        }
+        
+        #arrow-back {
+            color: #616161;
+            cursor: pointer;
+            font-size: 23px !important
         }

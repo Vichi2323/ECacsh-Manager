@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DatabaseServerService } from '../../../backend/resources/database-server/database-server.service';
 import { Toastr, TOASTR_TOKEN } from "src/app/toastr.service";
 import { DatabaseServer } from '../../../models/database-server-model';
+import { NavigationService } from '../../../backend/resources/navigation-service';
 
 @Component({
   selector: 'app-create-database-server-v1',
@@ -14,7 +15,7 @@ export class CreateDatabaseServerV1Component implements OnInit {
   dbServer!: DatabaseServer;
   dbServerId: any;
   mode?: string
-  constructor(private router: Router, private dbService: DatabaseServerService, private activatedRoute: ActivatedRoute, @Inject(TOASTR_TOKEN) private toastr: Toastr) {
+  constructor(private router: Router, private dbService: DatabaseServerService, private navigate: NavigationService, private activatedRoute: ActivatedRoute, @Inject(TOASTR_TOKEN) private toastr: Toastr) {
     this.mode = '';
     this.dbServer = {};
   }
@@ -60,5 +61,9 @@ export class CreateDatabaseServerV1Component implements OnInit {
     }
   }
 
+
+  back() {
+    this.navigate.back()
+  }
 
 }

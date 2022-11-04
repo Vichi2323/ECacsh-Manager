@@ -6,6 +6,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { IdentityUser } from '../../models/identity-user-model';
+import { NavigationService } from '../../backend/resources/navigation-service';
 
 @Component({
   selector: 'app-identity-users-v1',
@@ -30,7 +31,7 @@ export class IdentityUsersV1Component implements OnInit, AfterViewInit {
 
   }
 
-  constructor(private router: Router, private userService: IdentityUserService
+  constructor(private router: Router, private userService: IdentityUserService, private navigation: NavigationService
   ) {
     this.dataSource = new MatTableDataSource(this.users)
   }
@@ -82,6 +83,8 @@ export class IdentityUsersV1Component implements OnInit, AfterViewInit {
   }
 
 
-
+  back() {
+    this.navigation.back()
+  }
 
 }

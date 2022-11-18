@@ -4,7 +4,8 @@
       <mat-icon id="arrow-back">arrow_back</mat-icon>
     </button>
 
-        <h1>Create/Edit Users</h1>
+        <h1 *ngIf="mode === 'edit'">Edit Users</h1>
+        <h1 *ngIf="mode === 'create'">Create Users</h1>
         <span class="example-spacer"></span>
         <button mat-raised-button form="ngForm" type="submit" [disabled]="!userForm.valid">
       Save
@@ -15,14 +16,14 @@
         <div class="item">
             <mat-form-field class="mat-form-field">
                 <mat-label>Email</mat-label>
-                <input matInput [(ngModel)]="user.email" name="email" required email #email="ngModel" />
+                <input matInput [(ngModel)]="user.email" name="email" required #email="ngModel" />
                 <mat-error *ngIf="email.errors?.['required']">
                     Email is required
                 </mat-error>
             </mat-form-field>
             <mat-form-field class="mat-form-field">
                 <mat-label>Username</mat-label>
-                <input matInput [(ngModel)]="user.userName" name="userName" #userName="ngModel" />
+                <input matInput [(ngModel)]="user.userName" name="userName" required #userName="ngModel" />
 
                 <mat-error *ngIf="userName.errors?.['required']">
                     Username is required

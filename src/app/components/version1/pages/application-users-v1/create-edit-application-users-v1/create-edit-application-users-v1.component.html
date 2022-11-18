@@ -4,7 +4,8 @@
       <mat-icon id="arrow-back">arrow_back</mat-icon>
     </button>
 
-        <h1>Create/Edit User</h1>
+        <h1 *ngIf="mode === 'edit'">Edit Users</h1>
+        <h1 *ngIf="mode === 'create'">Create Users</h1>
         <span class="example-spacer"></span>
         <button mat-raised-button form="ngForm" type="submit" [disabled]="!userForm.valid">
       Save

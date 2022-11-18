@@ -44,7 +44,7 @@ export class DatabaseServerV1Component implements OnInit {
   }
 
   newDbServer() {
-    var url = 'v1/create-dbserverV1'
+    var url = 'v1/database-server/create'
     this.router.navigateByUrl(url);
   }
 
@@ -57,13 +57,7 @@ export class DatabaseServerV1Component implements OnInit {
     if (previouslyToggledElement)
       previouslyToggledElement.isDefault = false;
 
-    // find element from array that has toggled IsDefault.
 
-    // this.dataSource.data.forEach(element => {
-    //   if (element.id != makeDefaultId)
-    //     element.isDefault = false;
-    // }
-    // );
 
 
   }

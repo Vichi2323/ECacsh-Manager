@@ -29,7 +29,7 @@ export class SubscriptionService {
     }
 
     update(environmentId: any, data: any): Observable<Subscription> {
-        return this.apiService.patch(resourceId + environmentId + '/environmentSubscription', data)
+        return this.apiService.patch(resourceId + '/' + environmentId + '/environmentSubscription', data)
     }
     delete(id: any): Observable<Subscription> {
         return this.apiService.delete(resourceId + '/' + id);

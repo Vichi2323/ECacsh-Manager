@@ -73,12 +73,12 @@ export class IdentityUsersV1Component implements OnInit, AfterViewInit {
   }
 
   newUser() {
-    var url = 'v1/create-editV1'
+    var url = 'v1/identity-users/create'
     this.router.navigateByUrl(url);
   }
 
   editUser(userId: number) {
-    var url = 'v1/create-editV1/' + userId;
+    var url = 'v1/identity-users/' + userId + '/edit';
     this.router.navigateByUrl(url);
   }
 

@@ -68,18 +68,15 @@ export class EnvironmentsV1Component implements OnInit, AfterViewInit {
   }
 
   newEnvironment() {
-    var url = 'v1/create-environmentV1'
+    var url = 'v1/environments/create'
     this.router.navigateByUrl(url);
   }
 
-  // editEnvironment(userId: number) {
-  //   var url = 'v1/app-environment-user-v1' + userId;
-  //   this.router.navigateByUrl(url);
-  // }
+
 
 
   editEnvironment(id: string) {
-    var url = 'v1/app-environment-user-v1/' + id;
+    var url = 'v1/environmentsV1/' + id + '/manage';
     this.router.navigateByUrl(url);
   }
 

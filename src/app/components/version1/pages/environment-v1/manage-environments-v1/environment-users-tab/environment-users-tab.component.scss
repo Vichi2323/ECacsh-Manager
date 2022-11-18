@@ -84,15 +84,10 @@ td {
     color: #2D3142;
 }
 
-.title-button {
-    display: flex;
-    flex-wrap: wrap;
-    // justify-content: space-between;
-    align-items: center;
-    margin-bottom: -20px;
-    margin-top: -10px;
-}
-
+// .title-button {
+//     display: flex;
+//     flex-direction: row;
+// }
 h1 {
     color: #616161;
     font-size: 25px;
@@ -119,18 +114,6 @@ hr {
 mat-paginator {
     background-color: white;
     color: #616161;
-}
-
-#delete-icon {
-    color: #ff5252;
-    caret-color: #ff5252;
-    transform: scale(0.8);
-}
-
-#edit-icon {
-    color: #1976d2;
-    caret-color: #1976d2;
-    transform: scale(0.8);
 }
 
 #mat-form-field-infix ng-tns-c69-1 {

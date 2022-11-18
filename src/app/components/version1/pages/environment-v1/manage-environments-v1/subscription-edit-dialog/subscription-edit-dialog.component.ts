@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { SubscriptionService } from 'src/app/components/version1/backend/resources/subscription/subscribtion.service';
+import { AreYouSureComponent } from 'src/app/components/version1/components/common/are-you-sure/are-you-sure.component';
 import { Subscription } from 'src/app/components/version1/models/subsciption-model';
 
 @Component({
@@ -10,7 +11,7 @@ import { Subscription } from 'src/app/components/version1/models/subsciption-mod
 })
 export class SubscriptionEditDialogComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA,) public data: Subscription, public dialogRef: MatDialogRef<SubscriptionEditDialogComponent>, private subscriptionService: SubscriptionService) {
+  constructor(@Inject(MAT_DIALOG_DATA,) public data: Subscription, public dialogRef: MatDialogRef<SubscriptionEditDialogComponent>, private subscriptionService: SubscriptionService, public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -21,10 +22,34 @@ export class SubscriptionEditDialogComponent implements OnInit {
   }
 
   saveEdit() {
-    this.subscriptionService.update(this.data.environmentId, this.data).subscribe((res) => {
-      this.dialogRef.close();
-    })
 
+    const dialogRef = this.dialog.open(AreYouSureComponent, {
+      height: '20%',
+      width: '30%',
+      data: {
+        title: "Title",
+        message: "Message",
+        confirmButton: "Confirm",
+        cancelButton: "Cancel"
+      },
+      autoFocus: false
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.subscriptionService.update(this.data.environmentId, this.data).subscribe((res) => {
+          this.dialogRef.close();
+        })
+      }
+
+    });
   }
-
 }
+
+
+
+
+
+
+
+

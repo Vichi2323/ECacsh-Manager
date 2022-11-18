@@ -21,6 +21,17 @@ mat-form-field.mat-form-field {
     color: #616161 !important;
 }
 
+.title-modules-close-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.close:hover {
+    color: #1976d2;
+}
+
 .item {
     display: flex;
     flex-direction: column;
@@ -32,6 +43,8 @@ mat-form-field.mat-form-field {
     display: flex;
     flex-direction: row;
     margin-right: 30px;
+    margin-top: 20px;
+    padding-bottom: 55px;
 }
 
 .card-item {
@@ -44,6 +57,10 @@ mat-form-field.mat-form-field {
 
 #dialog-title {
     margin-top: -35px;
+}
+
+.modules-title {
+    margin-top: -45px;
 }
 
 mat-form-field {
@@ -88,19 +105,9 @@ td {
     color: #2D3142;
 }
 
-.title-button {
-    display: flex;
-    flex-wrap: wrap;
-    // justify-content: space-between;
-    align-items: center;
-    margin-bottom: -20px;
-    margin-top: -10px;
-}
-
 h1 {
     color: #616161;
     font-size: 25px;
-    // position: absolute;
 }
 
 hr {
@@ -110,19 +117,6 @@ hr {
     color: #616161;
     background-color: #61616160;
     width: 100%
-}
-
-.mat-flat-button,
-.mat-raised-button,
-.mat-fab,
-.mat-mini-fab {
-    color: #fff;
-    background-color: #616161;
-}
-
-mat-paginator {
-    background-color: white;
-    color: #616161;
 }
 
 #delete-icon {
@@ -150,51 +144,6 @@ mat-paginator {
     font-size: 250px;
 }
 
-::ng-deep {
-    $custom-main-color: #616161;
-    $custom-label-color: #616161;
-    // mat-icon-stepper selected color change
-    .mat-step-header .mat-step-icon-selected,
-    .mat-step-header .mat-step-icon-state-done,
-    .mat-step-header .mat-step-icon-state-edit {
-        background-color: $custom-main-color !important;
-    }
-    // input outline color
-    .mat-form-field-appearance-outline .mat-form-field-outline {
-        color: $custom-main-color !important;
-    }
-    // mat-input focused color
-    .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
-        color: $custom-main-color !important;
-    }
-    // mat-input error outline color
-    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick {
-        color: $custom-main-color !important;
-        opacity: 0.8 !important;
-    }
-    // mat-input caret color
-    .mat-input-element {
-        caret-color: $custom-main-color !important;
-    }
-    // mat-input error caret color
-    .mat-form-field-invalid .mat-input-element,
-    .mat-warn .mat-input-element {
-        caret-color: $custom-main-color !important;
-    }
-    // mat-label normal state style
-    .mat-form-field-label {
-        color: $custom-label-color !important;
-    }
-    // mat-label focused style
-    .mat-form-field.mat-focused .mat-form-field-label {
-        color: $custom-main-color !important;
-    }
-    // mat-label error style
-    .mat-form-field.mat-form-field-invalid .mat-form-field-label {
-        color: $custom-main-color !important;
-    }
-}
-
 ::ng-deep.mat-form-field.mat-focused .mat-form-field-ripple {
     background-color: #616161;
 }
@@ -213,6 +162,14 @@ mat-paginator {
     background-color: #1976d2;
 }
 
+.mat-flat-button,
+.mat-raised-button,
+.mat-fab,
+.mat-mini-fab {
+    color: #fff;
+    background-color: #616161;
+}
+
 .mat-radio-group {
     display: flex;
     width: 50%;
@@ -225,23 +182,6 @@ p {
     font-size: small;
     margin-top: 40px;
     margin-bottom: -40px;
-}
-
-.back-button {
-    margin-bottom: 75px;
-    margin-left: -60px;
-    border: none;
-    background-color: transparent;
-}
-
-#arrow-back:hover {
-    color: #1976d2
-}
-
-#arrow-back {
-    color: #616161;
-    cursor: pointer;
-    font-size: 23px !important
 }
 
 .radio-label {
@@ -313,4 +253,17 @@ p {
     /*'10px'-same as your required circle radius*/
     top: calc(50% - 10px);
     /*'10px'-same as your required circle radius*/
+}
+
+.close {
+    background-color: transparent;
+    background: none;
+}
+
+.close:focus {
+    outline: none;
+}
+
+.close:hover {
+    color: #1976d2;
 }

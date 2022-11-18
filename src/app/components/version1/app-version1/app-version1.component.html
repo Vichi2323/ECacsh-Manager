@@ -1,28 +1,32 @@
 <mat-sidenav-container>
     <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
-        <button mat-button class="menu-button" (click)="redirectTo('dashboardV1')">
-      <mat-icon>home</mat-icon>
+        <button mat-button class="menu-button" [routerLink]="['dashboard']" [routerLinkActive]="'is-active'">
+      <mat-icon [routerLinkActive]="'is-active'">home</mat-icon>
       <span>Home</span>
     </button>
-        <button mat-button class="menu-button" (click)="redirectTo('application-usersV1')">
-      <mat-icon>people</mat-icon>
+        <button mat-button class="menu-button" [routerLink]="['application-users']" [routerLinkActive]="'is-active'">
+      <mat-icon [routerLinkActive]="'is-active'">people</mat-icon>
       <span>User</span>
     </button>
-        <button mat-button class="menu-button" (click)="redirectTo('environmentsV1')">
-      <mat-icon>domain</mat-icon>
-      <span>Environment</span>
+        <button mat-button class="menu-button" [routerLink]="['environments']" [routerLinkActive]="'is-active'">
+      <mat-icon [routerLinkActive]="'is-active'">domain</mat-icon>
+      <span>Environments</span>
     </button>
         <h3>IDENTITY SERVER</h3>
         <mat-divider></mat-divider>
-        <button mat-button class="menu-button" (click)="redirectTo('identity-usersV1')">
-      <mat-icon>perm_identity</mat-icon>
+        <button mat-button class="menu-button" [routerLink]="['identity-users']" [routerLinkActive]="'is-active'">
+      <mat-icon [routerLinkActive]="'is-active'">perm_identity</mat-icon>
       <span>Identity User</span>
     </button>
         <h3>OPERATIONS</h3>
         <mat-divider></mat-divider>
-        <button mat-button class="menu-button" (click)="redirectTo('database-serverV1')">
-      <mat-icon>dataset_linked</mat-icon>
+        <button mat-button class="menu-button" [routerLink]="['database-server']" [routerLinkActive]="'is-active'">
+      <mat-icon [routerLinkActive]="'is-active'">dataset_linked</mat-icon>
       <span>Database Server</span>
+    </button>
+        <button mat-button class="menu-button" [routerLink]="['app-import-environment-v1']" [routerLinkActive]="'is-active'">
+      <mat-icon [routerLinkActive]="'is-active'">import_contacts</mat-icon>
+      <span>Import Environment</span>
     </button>
     </mat-sidenav>
     <mat-sidenav-content>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { AreYouSureComponent } from '../../components/common/are-you-sure/are-you-sure.component';
 
 @Component({
   selector: 'app-dashboard-v1',
@@ -8,7 +10,8 @@ import { Router } from '@angular/router';
 })
 export class DashboardV1Component implements OnInit {
 
-  constructor(private router: Router) { }
+
+  constructor(private router: Router, public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -17,4 +20,25 @@ export class DashboardV1Component implements OnInit {
     this.router.navigate(['v1/' + url]);
   }
 
+  openDialog() {
+    const dialogRef = this.dialog.open(AreYouSureComponent, {
+      height: '20%',
+      width: '30%',
+      data: {
+        title: "Title",
+        message: "Message",
+        confirmButton: "Confirm",
+        cancelButton: "Cancel"
+      },
+      autoFocus: false
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
 }
+
+
+

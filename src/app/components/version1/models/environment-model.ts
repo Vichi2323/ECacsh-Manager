@@ -1,5 +1,6 @@
 import EnvironmentRegionEnumeration from "../backend/enumerations/environment-region.enum"
 import { ApplicationUser } from "./application-users-model"
+import { DatabaseServer } from "./database-server-model"
 import { Subscription } from "./subsciption-model"
 
 export interface Environment {
@@ -8,7 +9,7 @@ export interface Environment {
     environmentRegion?: EnvironmentRegionEnumeration
     subscriptions?: Subscription[]
     users?: ApplicationUser[]
-    dbServer?: null
+    dbServer?: DatabaseServer | null
 }
 
 

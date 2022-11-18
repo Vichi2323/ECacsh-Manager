@@ -12,24 +12,26 @@ import { CreateEditIdentityUsersV1Component } from '../pages/identity-users-v1/c
 import { IdentityUsersV1Component } from '../pages/identity-users-v1/identity-users-v1.component';
 import { CreateDatabaseServerV1Component } from '../pages/database-server-v1/create-database-server-v1/create-database-server-v1.component';
 import { ManageEnvironmentsV1Component } from '../pages/environment-v1/manage-environments-v1/manage-environments-v1.component';
-
+import { ImportEnvironmentV1Component } from '../pages/environment-v1/import-environment-v1/import-environment-v1.component';
 const routes: Routes = [
 
 
   {
     path: 'v1', component: AppVersion1Component,
     children: [
-      { path: 'dashboardV1', component: DashboardV1Component },
-      { path: 'environmentsV1', component: EnvironmentsV1Component },
-      { path: 'identity-usersV1', component: IdentityUsersV1Component },
-      { path: 'create-editV1', component: CreateEditIdentityUsersV1Component },
-      { path: 'create-editV1/:id', component: CreateEditIdentityUsersV1Component },
-      { path: 'application-usersV1', component: ApplicationUsersV1Component },
-      { path: 'app-users-create-editV1', component: CreateEditApplicationUsersV1Component },
-      { path: 'create-environmentV1', component: CreateEnvironmentV1Component },
-      { path: 'database-serverV1', component: DatabaseServerV1Component },
-      { path: 'create-dbserverV1', component: CreateDatabaseServerV1Component },
-      { path: 'app-environment-user-v1/:id', component: ManageEnvironmentsV1Component },
+      { path: 'dashboard', component: DashboardV1Component },
+      { path: 'environments', component: EnvironmentsV1Component },
+      { path: 'identity-users', component: IdentityUsersV1Component },
+      { path: 'identity-users/create', component: CreateEditIdentityUsersV1Component },
+      { path: 'identity-users/:id/edit', component: CreateEditIdentityUsersV1Component },
+      { path: 'application-users', component: ApplicationUsersV1Component },
+      { path: 'application-users/create-user', component: CreateEditApplicationUsersV1Component },
+      { path: 'application-users/:id/edit', component: CreateEditApplicationUsersV1Component },
+      { path: 'environments/create', component: CreateEnvironmentV1Component },
+      { path: 'database-server', component: DatabaseServerV1Component },
+      { path: 'database-server/create', component: CreateDatabaseServerV1Component },
+      { path: 'environmentsV1/:id/manage', component: ManageEnvironmentsV1Component },
+      { path: 'app-import-environment-v1', component: ImportEnvironmentV1Component }
     ]
   },
 

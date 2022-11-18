@@ -18,16 +18,16 @@ export interface Subscription {
 }
 
 export interface CreateSubscription {
-    numOfLocations: number
-    numOfPoses: number
-    numOfMobilePoses: number
-    expiryDate: string
-    isWarehousingEnabled: boolean
-    numberOfWarehouses: number
-    isInvoicingEnabled: boolean
-    isAccountingJournalEnabled: boolean
-    isCustomersEnabled: boolean
-    isRegularGuestEnabled: boolean
-    isDeliveryEnabled: boolean
+    numOfLocations?: number
+    numOfPoses?: number
+    numOfMobilePoses?: number
+    expiryDate?: string
+    isWarehousingEnabled?: boolean
+    numberOfWarehouses?: number
+    isInvoicingEnabled?: boolean
+    isAccountingJournalEnabled?: boolean
+    isCustomersEnabled?: boolean
+    isRegularGuestEnabled?: boolean
+    isDeliveryEnabled?: boolean
 
 }

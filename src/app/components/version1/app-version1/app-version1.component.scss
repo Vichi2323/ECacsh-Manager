@@ -26,11 +26,17 @@ mat-sidenav-container {
     font-size: 1rem;
 }
 
-.menu-button:visited {
-    color: forestgreen;
-    text-decoration-color: hotpink;
+.is-active {
+    color: #1976d2;
 }
 
+// .menu-button:hover {
+//     border-left: 5px solid #1976d2;
+// }
+// .menu-button:visited {
+//     color: forestgreen;
+//     text-decoration-color: hotpink;
+// }
 button.mat-focus-indicator:hover {}
 
 mat-icon {

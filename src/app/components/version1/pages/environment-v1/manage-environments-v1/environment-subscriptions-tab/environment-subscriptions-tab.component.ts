@@ -29,21 +29,20 @@ export class EnvironmentSubscriptionsTabComponent implements OnInit {
     this.dataSource = new MatTableDataSource<Subscription>(this.environment.subscriptions)
   }
 
-
   openDialog(entity: Subscription) {
     const dialogRef = this.dialog.open(SubscriptionEditDialogComponent, {
+      autoFocus: false,
       data: entity
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
+
   }
 
-
-
-
   addSubscription() {
+
     console.log(this.newEnvironmentSubscrption);
     this.environmentService.addEnvironmentSubscription(this.environment.id, this.newEnvironmentSubscrption).subscribe((response) => {
       if (response) {

@@ -76,12 +76,12 @@ export class ApplicationUsersV1Component implements OnInit, AfterViewInit {
   }
 
   newAppUser() {
-    var url = 'v1/app-users-create-editV1'
+    var url = 'v1/application-users/create-user'
     this.router.navigateByUrl(url);
   }
 
   editAppUser(userId: number) {
-    var url = 'v1/create-editV1/' + userId;
+    var url = 'v1/application-users/' + userId + '/edit';
     this.router.navigateByUrl(url);
   }
 

@@ -5,6 +5,7 @@ import { ApplicationUserMapper } from "../application-user/application-user-mapp
 import { ApplicationUser } from "../../../models/application-users-model"
 import { SubscriptionMapper } from "../subscription/subscription.mapper.service";
 import { Subscription } from "../../../models/subsciption-model";
+import { ImportEnvironmentRequest } from "../../../models/import-environment-model";
 @Injectable({
     providedIn: 'root'
 })
@@ -48,6 +49,12 @@ export class EnvironmentMapper {
             isCustomersEnabled: entity.isDeliveryEnabled,
             isRegularGuestEnabled: entity.isRegularGuestEnabled,
             isDeliveryEnabled: entity.isDeliveryEnabled
+        }
+    }
+
+    mapImportEnvironment(entity: ImportEnvironmentRequest) {
+        return {
+
         }
     }
 }

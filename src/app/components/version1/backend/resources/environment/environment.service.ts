@@ -37,5 +37,9 @@ export class EnvironmentService {
         let request = this.mapper.mapAddEnvironmentSubscription(data);
         return this.apiService.post(resourceId + '/' + environmentId + '/environmentSubscription', request);
     }
+    assignDbServerToEnvironment(environmentId: any, dbSErverId: any) {
+        return this.apiService.post(resourceId + '/' + environmentId + '/dbServer/' + dbSErverId)
 
-}
+    }
+
+} 

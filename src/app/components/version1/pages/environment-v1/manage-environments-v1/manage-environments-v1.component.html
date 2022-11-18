@@ -5,23 +5,18 @@
     </button>
         <div class="h1-info">
             <h1>Manage Enviorment</h1>
-
-            <div class="environment-info">Name: {{ environment.name }}</div>
-            <div class="environment-info">
-                Region: {{ environment.environmentRegion?.getKey() }}
-            </div>
-            <div class="environment-info">
-                Database Server: {{ environment.dbServer }}
-            </div>
         </div>
     </div>
     <hr />
     <mat-tab-group mat-align-tabs="start">
+        <mat-tab label="General">
+            <app-environment-general-tab *ngIf="this.environment" [environment]="this.environment"></app-environment-general-tab>
+        </mat-tab>
         <mat-tab label="Users">
-            <app-environment-users-tab [environment]="this.environment"></app-environment-users-tab>
+            <app-environment-users-tab *ngIf="this.environment" [environment]="this.environment"></app-environment-users-tab>
         </mat-tab>
         <mat-tab label="Subscriptions">
-            <app-environment-subscriptions-tab [environment]="this.environment"></app-environment-subscriptions-tab>
+            <app-environment-subscriptions-tab *ngIf="this.environment" [environment]="this.environment"></app-environment-subscriptions-tab>
         </mat-tab>
     </mat-tab-group>
 </div>

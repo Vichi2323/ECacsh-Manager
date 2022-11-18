@@ -38,6 +38,7 @@ export class EnvironmentUsersTabComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     this.dataSource = new MatTableDataSource<ApplicationUser>(this.environment.users);
     this.userService.getAll().subscribe((res) => {
       this.appUsers = res;

@@ -1,0 +1,56 @@
+.card-info {
+    max-height: 100px;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.content {
+    font-size: 1rem;
+    color: #616161;
+}
+
+.environment-info {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-decoration: underline;
+    text-underline-offset: 50%;
+    text-decoration-thickness: 1px;
+    text-decoration-skip-ink: none;
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: white;
+    position: relative;
+    bottom: .25em;
+}
+
+.input-label {
+    display: inline-block;
+    text-align: right;
+}
+
+.example-form {
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+}
+
+.mat-flat-button,
+.mat-raised-button,
+.mat-fab,
+.mat-mini-fab {
+    color: #fff;
+    background-color: #616161;
+}
+
+.input-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.add-button {
+    margin-left: 20px;
+    margin-top: 30px;
+}

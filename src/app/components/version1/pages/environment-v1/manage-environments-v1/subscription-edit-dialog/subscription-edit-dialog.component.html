@@ -1,6 +1,13 @@
+<div class="title-modules-close-button">
+    <h1 id="dialog-title">Edit Subscription</h1>
+
+    <button class="close" mat-button (click)="onNoClick()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
 <div class="input-fields">
     <div class="item">
-        <h1 id="dialog-title">Edit Subscription</h1>
         <mat-form-field class="mat-form-field">
             <mat-label>Number of locations</mat-label>
             <input matInput name="numOfLocations" required numOfLocations [(ngModel)]="data.numOfLocations" />
@@ -23,7 +30,7 @@
         </mat-form-field>
     </div>
     <div class="modules-div">
-        <h1>Modules</h1>
+        <h1 class="modules-title">Modules</h1>
         <mat-card class="card">
             <div class="card-item">
                 <label class="radio-label-warehouse">Is Warehousing Enabled</label>
@@ -75,8 +82,5 @@
 
     <button class="add-button" mat-raised-button (click)="saveEdit()">
     Save
-  </button>
-    <button class="close" mat-button (click)="onNoClick()">
-    <mat-icon>close</mat-icon>
   </button>
 </div>

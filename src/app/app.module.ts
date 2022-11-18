@@ -39,6 +39,9 @@ import { ManageEnvironmentsV1Component } from './components/version1/pages/envir
 import { EnvironmentUsersTabComponent } from './components/version1/pages/environment-v1/manage-environments-v1/environment-users-tab/environment-users-tab.component';
 import { EnvironmentSubscriptionsTabComponent } from './components/version1/pages/environment-v1/manage-environments-v1/environment-subscriptions-tab/environment-subscriptions-tab.component';
 import { SubscriptionEditDialogComponent } from './components/version1/pages/environment-v1/manage-environments-v1/subscription-edit-dialog/subscription-edit-dialog.component';
+import { AreYouSureComponent } from './components/version1/components/common/are-you-sure/are-you-sure.component';
+import { EnvironmentGeneralTabComponent } from './components/version1/pages/environment-v1/manage-environments-v1/environment-general-tab/environment-general-tab.component';
+import { ImportEnvironmentV1Component } from './components/version1/pages/environment-v1/import-environment-v1/import-environment-v1.component';
 
 // @ts-ignore
 let toastr: Toastr = window['toastr'];
@@ -74,6 +77,9 @@ let toastr: Toastr = window['toastr'];
     EnvironmentUsersTabComponent,
     EnvironmentSubscriptionsTabComponent,
     SubscriptionEditDialogComponent,
+    AreYouSureComponent,
+    EnvironmentGeneralTabComponent,
+    ImportEnvironmentV1Component,
 
 
   ],

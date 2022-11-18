@@ -1,0 +1,31 @@
+<mat-card>
+    <div class="content">
+        <div class="environment-info">Name: {{ environment.name }}</div>
+
+        <div class="environment-info">
+            Region: {{ environment.environmentRegion?.getKey() }}
+        </div>
+        <div class="input-button">
+            <form class="example-form" (ngSubmit)="assignDatabaseServer()" *ngIf="!environment.dbServer; else elseBlock" #dbForm="ngForm" id="ngForm" novalidate>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label class="input-label">Choose Database Server</mat-label>
+                    <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto" />
+                    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="onSearchdbServerSelectionChanged($event)">
+                        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                            {{ option.name }}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+                <button mat-raised-button class="add-button" type="submit" form="ngForm" [disabled]="!dbForm.valid" mat-raised-button>
+          Save
+        </button>
+            </form>
+
+            <ng-template #elseBlock>
+                <div class="environment-info">
+                    Database Server: {{ environment.dbServer }}
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</mat-card>

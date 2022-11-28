@@ -12,19 +12,20 @@
         .user-info-card {
             display: flex;
             flex-direction: row;
-            justify-content: space-evenly;
+            justify-content: space-between;
             flex-wrap: wrap;
         }
         
         .username-email-telephonne-div {
             display: flex;
             flex-direction: column;
-            margin-right: 400px;
+            flex-wrap: wrap;
         }
         
         .password-div {
             display: flex;
             flex-direction: column;
+            margin-right: 300px;
         }
         
         .environmrnt-info-card {
@@ -44,7 +45,7 @@
             flex-direction: row;
             justify-content: space-around;
             flex-wrap: wrap;
-            width: 70rem;
+            width: 60rem;
         }
         
         .number-of-locations-column {
@@ -55,6 +56,7 @@
         .is-warehousing-enabled-column {
             display: flex;
             flex-direction: column;
+            align-self: inherit;
         }
         
         .is-invoicing-enabled-column {
@@ -81,11 +83,15 @@
             margin-top: 1px;
             font-size: 17px;
             width: 450px;
-            // width: 100%;
+        }
+        
+         ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+            background-color: white;
+            position: relative;
         }
         
         .mat-form-field-subscription {
-            width: 200px !important;
+            width: 300px !important;
         }
         
         mat-radio-button {

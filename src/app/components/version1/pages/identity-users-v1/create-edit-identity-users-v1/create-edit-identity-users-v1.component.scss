@@ -6,9 +6,16 @@
             color: rgb(59, 59, 59);
         }
         
-        .item {
+        .email-username-telephone-column {
             display: flex;
             flex-direction: column;
+            flex-wrap: wrap;
+        }
+        
+        .password-column {
+            display: flex;
+            flex-direction: column;
+            margin-right: 300px;
         }
         
         h1 {
@@ -40,9 +47,10 @@
         }
         
         .create-form {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 100px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            flex-wrap: wrap;
         }
         
         .title-button {

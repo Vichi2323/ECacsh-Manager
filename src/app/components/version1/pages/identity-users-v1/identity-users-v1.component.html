@@ -1,4 +1,4 @@
-<div class="content" *ngIf="!isListLoading">
+<div class="content">
     <div class="title-button">
         <button class="back-button" (click)="back()">
       <mat-icon id="arrow-back">arrow_back</mat-icon>
@@ -39,7 +39,7 @@
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Actions</th>
                 <td mat-cell *matCellDef="let row">
                     <button mat-icon-button (click)="editUser(row.id)">
-            <mat-icon id="edit-icon">edit</mat-icon>
+            <mat-icon id="edit-icon">settings</mat-icon>
           </button>
                 </td>
             </ng-container>

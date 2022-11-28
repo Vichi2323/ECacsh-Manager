@@ -1,0 +1,22 @@
+<div class="content">
+    <div class="title-button">
+        <button class="back-button" (click)="back()">
+      <mat-icon id="arrow-back">arrow_back</mat-icon>
+    </button>
+        <div class="h1-info">
+            <h1>Manage Enviorment</h1>
+        </div>
+    </div>
+    <hr />
+    <mat-tab-group mat-align-tabs="start">
+        <mat-tab label="General">
+            <app-environment-general-tab2 *ngIf="this.environment" [environment]="this.environment"></app-environment-general-tab2>
+        </mat-tab>
+        <mat-tab label="Users">
+            <app-environment-users-tab2 *ngIf="this.environment" [environment]="this.environment"></app-environment-users-tab2>
+        </mat-tab>
+        <mat-tab label="Subscriptions">
+            <app-environment-subscription-tab2 *ngIf="this.environment" [environment]="this.environment"></app-environment-subscription-tab2>
+        </mat-tab>
+    </mat-tab-group>
+</div>

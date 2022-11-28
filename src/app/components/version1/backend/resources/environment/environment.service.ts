@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Environment } from '../../../models/environment-model';
 import { EnvironmentMapper } from './environment-mapper';
-import { ApiService } from '../api-service';
+import { ApiService } from '../../../../api-service';
 import { map } from "rxjs/operators";
 
 const resourceId = 'environment'
@@ -39,7 +39,11 @@ export class EnvironmentService {
     }
     assignDbServerToEnvironment(environmentId: any, dbSErverId: any) {
         return this.apiService.post(resourceId + '/' + environmentId + '/dbServer/' + dbSErverId)
-
     }
+    importEnvironmet(data: any) {
+        var request = this.mapper.mapImportEnvironment(data);
+        return this.apiService.post(resourceId + '/import', request)
+    }
+}
 
-} 
+

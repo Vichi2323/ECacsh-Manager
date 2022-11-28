@@ -1,49 +1,49 @@
 <mat-sidenav-container>
     <mat-sidenav #sidenav class="mat-elevation-z8" opened mode="side">
-        <button mat-button class="menu-button" (click)="redirectTo('dashboardV2')">
-      <mat-icon>home</mat-icon>
+        <button mat-button class="menu-button" [routerLink]="['dashboard']" [routerLinkActive]="'is-active'">
+      <mat-icon [routerLinkActive]="'is-active'">home</mat-icon>
       <span>Home</span>
     </button>
-        <button mat-button class="menu-button" (click)="redirectTo('application-userV2')">
-      <mat-icon>people</mat-icon>
+        <button mat-button class="menu-button" [routerLink]="['application-users']" [routerLinkActive]="'is-active'">
+      <mat-icon [routerLinkActive]="'is-active'">people</mat-icon>
       <span>User</span>
     </button>
-        <button mat-button class="menu-button" (click)="redirectTo('environmentV2')">
-      <mat-icon>domain</mat-icon>
-      <span>Enviorment</span>
+        <button mat-button class="menu-button" [routerLink]="['environments']" [routerLinkActive]="'is-active'">
+      <mat-icon [routerLinkActive]="'is-active'">domain</mat-icon>
+      <span>Environments</span>
     </button>
-        <button mat-button class="menu-button" (click)="redirectTo('orderV2')">
-      <mat-icon>sort by alpha</mat-icon>
+        <button mat-button class="menu-button" (click)="redirectTo('orders')" [routerLink]="['orders']" [routerLinkActive]="'is-active'">
+      <mat-icon [routerLinkActive]="'is-active'">sort by alpha</mat-icon>
       <span>Order</span>
     </button>
 
-        <button mat-button class="menu-button" (click)="redirectTo('paymentV2')">
-      <mat-icon>payments</mat-icon>
+        <button mat-button class="menu-button" (click)="redirectTo('payment')" [routerLink]="['payment']" [routerLinkActive]="'is-active'">
+      <mat-icon [routerLinkActive]="'is-active'">payments</mat-icon>
       <span>Payment</span>
     </button>
         <h3>IDENTITY SERVER</h3>
         <mat-divider></mat-divider>
-        <button mat-button class="menu-button" (click)="redirectTo('identity-usersV2')">
-      <mat-icon>perm_identity</mat-icon>
+        <button mat-button class="menu-button" [routerLink]="['identity-users']" [routerLinkActive]="'is-active'">
+      <mat-icon [routerLinkActive]="'is-active'">perm_identity</mat-icon>
       <span>Identity User</span>
     </button>
-        <button mat-button class="menu-button" (click)="redirectTo('application')">
-      <mat-icon>app_settings_alt</mat-icon>
+        <button mat-button class="menu-button" (click)="redirectTo('application')" [routerLink]="['application']" [routerLinkActive]="'is-active'">
+      <mat-icon [routerLinkActive]="'is-active'">app_settings_alt</mat-icon>
       <span>Application</span>
     </button>
         <h3>OPERATIONS</h3>
         <mat-divider></mat-divider>
-        <button mat-button class="menu-button" (click)="redirectTo('database-serverV2')">
-      <mat-icon>dataset_linked</mat-icon>
+        <button mat-button class="menu-button" [routerLink]="['database-server']" [routerLinkActive]="'is-active'">
+      <mat-icon [routerLinkActive]="'is-active'">dataset_linked</mat-icon>
       <span>Database Server</span>
     </button>
-        <button mat-button class="menu-button" routerLink="/message-queu-servers">
-      <mat-icon>forum</mat-icon>
+        <button mat-button class="menu-button" [routerLink]="['app-message-queue-servers']" [routerLinkActive]="'is-active'">
+      <mat-icon [routerLinkActive]="'is-active'">forum</mat-icon>
       <span>Message Queue Servers</span>
     </button>
 
-        <button mat-button class="menu-button" routerLink="/media-library">
-      <mat-icon>video_library</mat-icon>
+        <button mat-button class="menu-button" [routerLink]="['app-media-library']" routerLink="app-media-library" [routerLinkActive]="'is-active'">
+      <mat-icon [routerLinkActive]="'is-active'">video_library</mat-icon>
       <span>Media Library</span>
     </button>
     </mat-sidenav>

@@ -1,15 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
-import { map, startWith } from 'rxjs';
-import { Observable } from 'rxjs/internal/Observable';
-import { ApplicationUserService } from '../../../backend/resources/application-user/application-user.service';
-import { EnvironmentMockService } from '../../../backend/resources/environment/environment-mock.service';
 import { EnvironmentService } from '../../../backend/resources/environment/environment.service';
 import { NavigationService } from '../../../backend/resources/navigation-service';
-import { ApplicationUser } from '../../../models/application-users-model';
 import { Environment } from '../../../models/environment-model';
 
 

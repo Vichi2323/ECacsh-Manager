@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { SubscriptionMapper } from './subscription.mapper.service';
-import { ApiService } from '../api-service';
+import { ApiService } from '../../../../api-service';
 import { map } from "rxjs/operators";
 import { Subscription } from '../../../models/subsciption-model';
 

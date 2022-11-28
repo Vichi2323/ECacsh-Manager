@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ApplicationUser } from '../../../models/application-users-model';
 import { ApplicationUserMapper } from './application-user-mapper.service';
-import { ApiService } from '../api-service';
+import { ApiService } from '../../../../api-service';
 import { map } from "rxjs/operators";
 
 const resourceId = 'applicationUser'

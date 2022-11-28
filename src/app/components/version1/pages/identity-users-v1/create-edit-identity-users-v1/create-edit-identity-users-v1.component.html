@@ -13,7 +13,7 @@
     </div>
     <hr />
     <form class="create-form" (ngSubmit)="saveUser()" #userForm="ngForm" id="ngForm" novalidate>
-        <div class="item">
+        <div class="email-username-telephone-column">
             <mat-form-field class="mat-form-field">
                 <mat-label>Email</mat-label>
                 <input matInput [(ngModel)]="user.email" name="email" required #email="ngModel" />
@@ -45,7 +45,7 @@
 
             <br />
         </div>
-        <div class="item-1">
+        <div class="password-column">
             <mat-form-field class="mat-form-field">
                 <mat-label>Password</mat-label>
                 <input matInput [(ngModel)]="user.password" name="password" required #password="ngModel" type="password" />

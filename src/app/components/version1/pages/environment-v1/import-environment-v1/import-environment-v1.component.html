@@ -68,13 +68,14 @@
 
                     <mat-error> </mat-error>
                 </mat-form-field>
-                <mat-form-field class="mat-form-field-subscription">
-                    <mat-label>Database Server</mat-label>
-                    <input matInput name="dbserver" [(ngModel)]="environment.dbServer" required #dbServer="ngModel" />
-
-                    <mat-error> database Server is required </mat-error>
-
-                    <mat-error> </mat-error>
+                <mat-form-field class="mat-form-field-subscription" appearance="fill">
+                    <mat-label class="input-label">Choose Database Server</mat-label>
+                    <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto" />
+                    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="onSearchdbServerSelectionChanged($event)">
+                        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                            {{ option.name }}
+                        </mat-option>
+                    </mat-autocomplete>
                 </mat-form-field>
             </div>
             <mat-card class="subscription-card">

@@ -1,0 +1,86 @@
+<div class="title-modules-close-button">
+    <h1 id="dialog-title">Edit Subscription</h1>
+
+    <button class="close" mat-button (click)="onNoClick()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+<div class="input-fields">
+    <div class="item">
+        <mat-form-field class="mat-form-field">
+            <mat-label>Number of locations</mat-label>
+            <input matInput name="numOfLocations" required numOfLocations [(ngModel)]="data.numOfLocations" />
+            <mat-error> Number of locations is required </mat-error>
+        </mat-form-field>
+        <mat-form-field class="mat-form-field">
+            <mat-label>Number of poses</mat-label>
+            <input matInput name="numOfPoses" required numOfPoses [(ngModel)]="data.numOfPoses" />
+            <mat-error> Number of poses is required </mat-error>
+        </mat-form-field>
+        <mat-form-field class="mat-form-field">
+            <mat-label>Number of mobile poses</mat-label>
+            <input matInput name="numOfMobilePoses" required numOfMobilePoses [(ngModel)]="data.numOfMobilePoses" />
+            <mat-error> Number of poses is required </mat-error>
+        </mat-form-field>
+        <mat-form-field class="mat-form-field">
+            <mat-label>Expiry Date</mat-label>
+            <input matInput name="expiryDate" required expiryDate [(ngModel)]="data.expiryDate" />
+            <mat-error> Number of poses is required </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="modules-div">
+        <h1 class="modules-title">Modules</h1>
+        <mat-card class="card">
+            <div class="card-item">
+                <label class="radio-label-warehouse">Is Warehousing Enabled</label>
+                <br />
+                <mat-radio-group aria-label="Select an option" class="radio-input" name="isWarehousingEnabled" [(ngModel)]="data.isWarehousingEnabled" #isWarehousingEnabled="ngModel">
+                    <mat-radio-button [value]="true">Yes</mat-radio-button>
+                    <mat-radio-button [value]="false" id="no-radio-button">No</mat-radio-button>
+                </mat-radio-group>
+
+                <mat-form-field class="mat-form-field">
+                    <mat-label>Number of Warehouses</mat-label>
+                    <input matInput name="numberOfWarehousesl" required numberOfWarehouses />
+                    <mat-error>Number of Warehouses enabled is required </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="card-item-1">
+                <label class="radio-label">Is Invoicing Enabled</label>
+                <mat-radio-group aria-label="Select an option" class="radio-input" name="isInvoicingEnabled" [(ngModel)]="data.isInvoicingEnabled" #isInvoicingEnabled="ngModel">
+                    <mat-radio-button [value]="true">Yes</mat-radio-button>
+                    <mat-radio-button [value]="false">No</mat-radio-button>
+                </mat-radio-group>
+                <br />
+                <label class="radio-label">Is Accounting Jurnal Enabled</label>
+                <mat-radio-group aria-label="Select an option" class="radio-input" name="isAccountingJournalEnabled" [(ngModel)]="data.isAccountingJournalEnabled" #isAccountingJournalEnabled="ngModel">
+                    <mat-radio-button [value]="true">Yes</mat-radio-button>
+                    <mat-radio-button [value]="false">No</mat-radio-button>
+                </mat-radio-group>
+                <br />
+                <label class="radio-label">Is Customers Enabled</label>
+                <mat-radio-group aria-label="Select an option" class="radio-input" name="isCustomersEnabled" [(ngModel)]="data.isCustomersEnabled" #isCustomersEnabled="ngModel">
+                    <mat-radio-button [value]="true">Yes</mat-radio-button>
+                    <mat-radio-button [value]="false">No</mat-radio-button>
+                </mat-radio-group>
+                <br />
+                <label class="radio-label">Is Regular Guest Enabled</label>
+                <mat-radio-group aria-label="Select an option" class="radio-input" name="isRegularGuestEnabled" [(ngModel)]="data.isRegularGuestEnabled" #isRegularGuestEnabled="ngModel">
+                    <mat-radio-button [value]="true">Yes</mat-radio-button>
+                    <mat-radio-button [value]="false">No</mat-radio-button>
+                </mat-radio-group>
+                <br />
+                <label class="radio-label">Is Delivery Enabled</label>
+                <mat-radio-group aria-label="Select an option" class="radio-input" name="isDeliveryEnabled" [(ngModel)]="data.isDeliveryEnabled" #isDeliveryEnabled="ngModel">
+                    <mat-radio-button [value]="true">Yes</mat-radio-button>
+                    <mat-radio-button [value]="false">No</mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </mat-card>
+    </div>
+
+    <button class="add-button" mat-raised-button (click)="saveEdit()">
+    Save
+  </button>
+</div>

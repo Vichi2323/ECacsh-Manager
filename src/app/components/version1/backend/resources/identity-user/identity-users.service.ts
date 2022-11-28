@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IdentityUser } from '../../../models/identity-user-model';
 import { IdentityUserMapper } from './identity-user-mapper.service';
-import { ApiService } from '../api-service';
+import { ApiService } from '../../../../api-service';
 import { map } from "rxjs/operators";
 
 const resourceId = 'identityUser';

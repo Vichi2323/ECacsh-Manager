@@ -64,7 +64,7 @@ td {
     justify-content: space-between;
     align-items: center;
     margin-bottom: -50px;
-    margin-top: -50px;
+    margin-top: -51px;
 }
 
 h1 {
@@ -169,26 +169,12 @@ mat-paginator {
     background-color: #616161;
 }
 
-// :host ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
-//     background-color: #616161;
-// }
-// :host ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
-//     background-color: #1976d2;
-// }
 :host ::ng-deep.mat-slide-toggle-thumb {
     width: 10px !important;
     height: 10px !important;
     transform: translate(50%, 50%);
 }
 
-// :host ::ng-deep.mat-slide-toggle-bar {
-//     background-color: #616161;
-//     border-radius: 15px !important;
-//     height: 16px !important;
-// }
-// :host ::ng-deep.mat-slide-toggle-thumb-container {
-//     top: -2px !important;
-// }
 :host ::ng-deep.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
     background-color: #D3D3D3;
 }

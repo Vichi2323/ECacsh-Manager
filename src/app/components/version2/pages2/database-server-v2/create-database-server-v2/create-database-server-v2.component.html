@@ -1,0 +1,36 @@
+<div class="content">
+    <div class="title-button">
+        <button class="back-button" (click)="back()">
+      <mat-icon id="arrow-back">arrow_back</mat-icon>
+    </button>
+        <h1>Create Database</h1>
+        <span class="example-spacer"></span>
+        <button mat-raised-button form="ngForm" type="submit" [disabled]="!dbServerForm.valid">
+      Save
+    </button>
+    </div>
+    <hr />
+    <form class="create-form" (ngSubmit)="saveDbServer()" #dbServerForm="ngForm" id="ngForm" novalidate>
+        <div class="item">
+            <mat-form-field class="mat-form-field">
+                <mat-label>Name</mat-label>
+                <input matInput [(ngModel)]="dbServer.name" name="name" required #name="ngModel" />
+                <mat-error *ngIf="name.errors?.['required']">
+                    Name is required
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="mat-form-field">
+                <mat-label>Connection String</mat-label>
+                <input matInput [(ngModel)]="dbServer.connectionString" name="connectionString" required pattern="^[a-zA-Z0-9]+$" #connectionString="ngModel" />
+
+                <mat-error *ngIf="connectionString.errors?.['required']">
+                    Connection String is required
+                </mat-error>
+
+                <mat-error *ngIf="connectionString.errors?.['minlength']">
+                    Username Minimum Length is {{ connectionString.errors?.['minlength']?.requiredLength }}
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </form>
+</div>

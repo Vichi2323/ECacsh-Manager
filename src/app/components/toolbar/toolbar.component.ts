@@ -1,6 +1,5 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
-import { BreakpointObserver } from '@angular/cdk/layout'
 import { EventEmitter } from '@angular/core';
 import { Output } from '@angular/core';
 import { Router } from '@angular/router';
@@ -10,27 +9,30 @@ import { Router } from '@angular/router';
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss']
 })
-export class ToolbarComponent {
+export class ToolbarComponent implements OnInit {
 
   @Output() toggleSidenavEvent = new EventEmitter<void>();
 
-  selectedVersion: string;
+  selectedVersion?: string = 'v1/dashboard';
 
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav
 
-  constructor(private router: Router) {
-    this.selectedVersion = 'v1/dashboardV1';
-  }
 
+  constructor(private router: Router) {
+
+  }
+  ngOnInit(): void {
+
+  }
 
   switchVersions(url: EventTarget | null) {
     this.router.navigate([url]);
   }
 
   handleLogoClicked() {
-    this.selectedVersion = 'v1/dashboardV1';
-    this.router.navigate(['v1/dashboardV1']);
+    this.selectedVersion = 'v1/dashboard';
+    this.router.navigate(['v1/dashboard']);
   }
 
 

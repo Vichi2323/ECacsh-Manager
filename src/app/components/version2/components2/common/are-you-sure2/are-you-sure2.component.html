@@ -1,0 +1,18 @@
+<div class="title-div">
+    <h1 mat-dialog-title class="title">{{ data?.title }}</h1>
+    <button class="close" mat-button (click)="noHandler()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+<hr />
+<div mat-dialog-content class="message">
+    {{ data.message }}
+</div>
+<div mat-dialog-actions class="buttons">
+    <button class="button" mat-button mat-dialog-close (click)="noHandler()">
+    {{ data.cancelButton }}
+  </button>
+    <button class="button" mat-button mat-dialog-close (click)="yesHandler()">
+    {{ data.confirmButton }}
+  </button>
+</div>

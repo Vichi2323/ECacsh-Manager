@@ -28,7 +28,7 @@ export class EnvironmentsV1Component implements OnInit, AfterViewInit {
 
 
 
-  constructor(private router: Router, private userService: EnvironmentService, private navigation: NavigationService
+  constructor(private router: Router, private userService: EnvironmentService, private navigate: NavigationService
   ) {
     this.dataSource = new MatTableDataSource(this.environments)
   }
@@ -76,13 +76,13 @@ export class EnvironmentsV1Component implements OnInit, AfterViewInit {
 
 
   editEnvironment(id: string) {
-    var url = 'v1/environmentsV1/' + id + '/manage';
+    var url = 'v1/environments/' + id + '/manage';
     this.router.navigateByUrl(url);
   }
 
 
   back() {
-    this.navigation.back()
+    this.navigate.back()
   }
 
 }

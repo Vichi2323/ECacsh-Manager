@@ -1,0 +1,47 @@
+hr {
+    opacity: 1px;
+    height: 2px;
+    border-width: 0;
+    color: #616161;
+    background-color: #61616160;
+    width: 100%
+}
+
+.title-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.message {
+    text-align: left;
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.close {
+    background-color: transparent;
+    background: none;
+}
+
+.mat-icon {
+    background-color: transparent;
+    background: none;
+}
+
+.close:focus {
+    outline: none;
+}
+
+.close:hover {
+    color: #1976d2;
+}
+
+.mat-button.mat-primary .mat-button-focus-overlay {
+    background: none;
+    background-color: transparent;
+}

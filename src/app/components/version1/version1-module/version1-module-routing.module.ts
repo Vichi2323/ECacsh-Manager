@@ -21,16 +21,16 @@ const routes: Routes = [
     children: [
       { path: 'dashboard', component: DashboardV1Component },
       { path: 'environments', component: EnvironmentsV1Component },
+      { path: 'environments/create', component: CreateEnvironmentV1Component },
       { path: 'identity-users', component: IdentityUsersV1Component },
       { path: 'identity-users/create', component: CreateEditIdentityUsersV1Component },
       { path: 'identity-users/:id/edit', component: CreateEditIdentityUsersV1Component },
       { path: 'application-users', component: ApplicationUsersV1Component },
       { path: 'application-users/create-user', component: CreateEditApplicationUsersV1Component },
       { path: 'application-users/:id/edit', component: CreateEditApplicationUsersV1Component },
-      { path: 'environments/create', component: CreateEnvironmentV1Component },
       { path: 'database-server', component: DatabaseServerV1Component },
       { path: 'database-server/create', component: CreateDatabaseServerV1Component },
-      { path: 'environmentsV1/:id/manage', component: ManageEnvironmentsV1Component },
+      { path: 'environments/:id/manage', component: ManageEnvironmentsV1Component },
       { path: 'app-import-environment-v1', component: ImportEnvironmentV1Component }
     ]
   },

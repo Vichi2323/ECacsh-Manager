@@ -4,11 +4,10 @@ import { DatabaseServerService } from 'src/app/components/version1/backend/resou
 import { EnvironmentService } from 'src/app/components/version1/backend/resources/environment/environment.service';
 import { NavigationService } from 'src/app/components/version1/backend/resources/navigation-service';
 import { Environment } from 'src/app/components/version1/models/environment-model';
-
 import { DatabaseServer } from 'src/app/components/version1/models/database-server-model';
 import { map, Observable, startWith } from 'rxjs';
 import { FormControl } from '@angular/forms';
-import { MatAutocompleteActivatedEvent, MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 
 
 
@@ -52,7 +51,6 @@ export class EnvironmentGeneralTabComponent implements OnInit {
   }
 
   onSearchdbServerSelectionChanged(event: MatAutocompleteSelectedEvent) {
-    debugger;
     this.dbServer = event.option?.value;
   }
 

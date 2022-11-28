@@ -1,5 +1,4 @@
-.dashboardv2 {
-    padding: 16px;
+.dashboard {
     flex-wrap: wrap;
 }
 
@@ -8,7 +7,7 @@
     max-height: 400px;
     min-width: 200px;
     min-height: 80px;
-    margin-bottom: 8px;
+    margin-bottom: 80px;
     margin-left: 35px;
     margin-top: 35px;
     font-size: 16px;
@@ -26,7 +25,7 @@ mat-card-title {
     font-size: 16px;
 }
 
-.dashboardv2 {
+.dashboard {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -46,4 +45,20 @@ mat-card-title-group {
 
 .material-symbols-outlined:hover {
     color: #1976d2;
+}
+
+.back-button {
+    margin-bottom: 112px;
+    border: none;
+    background-color: transparent;
+}
+
+#arrow-back:hover {
+    color: #1976d2
+}
+
+#arrow-back {
+    color: #616161;
+    cursor: pointer;
+    font-size: 23px !important
 }

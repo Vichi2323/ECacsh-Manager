@@ -4,7 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { EnvironmentService } from 'src/app/components/version1/backend/resources/environment/environment.service';
 import { Environment } from 'src/app/components/version1/models/environment-model';
 import { Subscription } from 'src/app/components/version1/models/subsciption-model';
-import { SubscriptionEditDialogComponent } from '../subscription-edit-dialog/subscription-edit-dialog.component';
+import { SubscriptionEditDialog2Component } from 'src/app/components/version2/pages2/environments-v2/menage-environments-v2/subscription-edit-dialog2/subscription-edit-dialog2.component';
 
 @Component({
   selector: 'app-environment-subscriptions-tab',
@@ -30,7 +30,7 @@ export class EnvironmentSubscriptionsTabComponent implements OnInit {
   }
 
   openDialog(entity: Subscription) {
-    const dialogRef = this.dialog.open(SubscriptionEditDialogComponent, {
+    const dialogRef = this.dialog.open(SubscriptionEditDialog2Component, {
       autoFocus: false,
       data: entity
     });

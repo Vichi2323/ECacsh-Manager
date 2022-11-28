@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { NavigationServiceV2 } from 'src/app/components/version2/backend/recources/navigation2.service';
 import { AreYouSureComponent } from '../../components/common/are-you-sure/are-you-sure.component';
 
 @Component({
@@ -11,7 +12,7 @@ import { AreYouSureComponent } from '../../components/common/are-you-sure/are-yo
 export class DashboardV1Component implements OnInit {
 
 
-  constructor(private router: Router, public dialog: MatDialog) { }
+  constructor(private navigate: NavigationServiceV2, private router: Router, public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -36,6 +37,10 @@ export class DashboardV1Component implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
+  }
+
+  back() {
+    this.navigate.back()
   }
 
 }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { DatabaseServer } from '../../../models/database-server-model';
 import { DatabaseMapper } from './database-server-mapper.service';
-import { ApiService } from '../api-service';
+import { ApiService } from '../../../../api-service';
 import { map } from "rxjs/operators";
 
 const resourceId = 'dbServer';

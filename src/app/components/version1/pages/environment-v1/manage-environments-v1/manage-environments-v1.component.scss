@@ -14,89 +14,18 @@ mat-form-field {
     color: #616161 !important;
 }
 
-.add-user-input-button {
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    justify-content: space-between;
-}
-
-.h1-info {
-    display: flex;
-    flex-direction: column;
-    margin-left: 25px;
-}
-
-.environment-card {
-    font-size: medium;
-    box-sizing: content-box;
-    width: 65%;
-    padding: 10px;
-}
-
-.card-info {
-    display: block;
-    margin-right: 300px;
-}
-
-.environment-info {
-    font-size: 1rem;
-    color: #616161;
-}
-
-thead {
-    border-bottom: 1.5px solid #d6d6d6;
-}
-
-table {
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-    background-color: white;
-}
-
-table tr {
-    /* border-top: 1px solid gray; */
-    border-bottom: 1px solid #d6d6d6;
-}
-
-table tr:nth-child(even) {
-    background-color: white;
-}
-
-td.mat-cell {
-    border-bottom-style: none;
-}
-
-table tr:hover {
-    background-color: #f2f2f2;
-}
-
-table th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: white;
-    color: #616161;
-}
-
-td {
-    color: #2D3142;
-}
-
 .title-button {
     display: flex;
     flex-wrap: wrap;
-    // justify-content: space-between;
     align-items: center;
-    margin-bottom: -20px;
-    margin-top: -10px;
+    margin-bottom: -15px;
+    margin-top: -15px;
 }
 
 h1 {
     color: #616161;
     font-size: 25px;
-    position: relative;
+    position: absolute;
 }
 
 hr {

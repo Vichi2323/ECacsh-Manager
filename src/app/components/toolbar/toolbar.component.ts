@@ -12,8 +12,8 @@ import { Router } from '@angular/router';
 export class ToolbarComponent implements OnInit {
 
   @Output() toggleSidenavEvent = new EventEmitter<void>();
+  selectedVersion?: string = 'v1';
 
-  selectedVersion?: string = 'v1/dashboard';
 
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav
@@ -21,17 +21,20 @@ export class ToolbarComponent implements OnInit {
 
   constructor(private router: Router) {
 
+
   }
+
   ngOnInit(): void {
-
+    this.selectedVersion = this.router.url && this.router.url.indexOf('v1') !== -1 ? 'v1' : 'v2';
+    this.router.navigate([`${this.selectedVersion}/dashboard`]);
   }
 
-  switchVersions(url: EventTarget | null) {
-    this.router.navigate([url]);
+  switchVersions(versionId: EventTarget | null) {
+    this.router.navigate([`${versionId}/dashboard`]);
   }
 
   handleLogoClicked() {
-    this.selectedVersion = 'v1/dashboard';
+    this.selectedVersion = 'v1';
     this.router.navigate(['v1/dashboard']);
   }
 

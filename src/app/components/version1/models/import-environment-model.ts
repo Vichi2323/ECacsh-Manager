@@ -1,3 +1,5 @@
+import EnvironmentRegionEnumeration from "../backend/enumerations/environment-region.enum"
+
 export interface ImportEnvironmentRequest {
     userName?: string
     email?: string
@@ -5,7 +7,7 @@ export interface ImportEnvironmentRequest {
     password?: string
     confirmPassword?: string
     environmentName?: string
-    dbServer?: string
+    dbServerId?: string
     numOfLocations?: number
     numOfPoses?: number
     numOfMobilePoses?: number
@@ -17,6 +19,7 @@ export interface ImportEnvironmentRequest {
     isCustomersEnabled?: boolean
     isRegularGuestEnabled?: boolean
     isDeliveryEnabled?: boolean
+    environmentRegion?: EnvironmentRegionEnumeration
 
 
 
@@ -24,14 +27,3 @@ export interface ImportEnvironmentRequest {
 
 
 
-// function mapToRequest(data){
-//     return {
-//         UserInfo :{
-//             userName : data.userName,
-
-//         },
-//         EnvironmentInfo:{
-//             environmentName : data.environmentname
-//         }
-//     }
-// }

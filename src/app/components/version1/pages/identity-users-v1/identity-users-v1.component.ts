@@ -21,7 +21,7 @@ export class IdentityUsersV1Component implements OnInit, AfterViewInit {
 
   isListLoading = true;
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild('paginator') paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
 
@@ -47,6 +47,8 @@ export class IdentityUsersV1Component implements OnInit, AfterViewInit {
         this.users = res;
         this.dataSource = new MatTableDataSource<any>(this.users);
         this.isListLoading = false;
+        this.dataSource.paginator = this.paginator
+
       })
   }
 

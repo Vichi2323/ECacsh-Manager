@@ -23,7 +23,7 @@ export class EnvironmentsV1Component implements OnInit, AfterViewInit {
   dataSource!: MatTableDataSource<any>;
 
 
-  @ViewChild(MatPaginator, { static: false }) paginator!: MatPaginator;
+  @ViewChild('paginator') paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
 
@@ -51,6 +51,7 @@ export class EnvironmentsV1Component implements OnInit, AfterViewInit {
       .subscribe((data) => {
         this.environments = data;
         this.dataSource = new MatTableDataSource<any>(this.environments);
+        this.dataSource.paginator = this.paginator
 
       })
   }

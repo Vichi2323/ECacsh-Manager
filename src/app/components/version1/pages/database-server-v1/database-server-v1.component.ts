@@ -18,7 +18,7 @@ export class DatabaseServerV1Component implements OnInit {
   dataSource!: MatTableDataSource<DatabaseServer>
   dbServers?: DatabaseServer[]
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild('paginator') paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
 
@@ -40,6 +40,8 @@ export class DatabaseServerV1Component implements OnInit {
       .subscribe((data) => {
         this.dbServers = data
         this.dataSource = new MatTableDataSource<any>(this.dbServers)
+        this.dataSource.paginator = this.paginator
+
       })
   }
 

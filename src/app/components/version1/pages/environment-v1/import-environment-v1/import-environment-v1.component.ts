@@ -8,7 +8,6 @@ import { DatabaseServerService } from '../../../backend/resources/database-serve
 import { EnvironmentService } from '../../../backend/resources/environment/environment.service';
 import { NavigationService } from '../../../backend/resources/navigation-service';
 import { DatabaseServer } from '../../../models/database-server-model';
-import { Environment } from '../../../models/environment-model';
 import { ImportEnvironmentRequest } from '../../../models/import-environment-model';
 
 
@@ -23,14 +22,14 @@ export class ImportEnvironmentV1Component implements OnInit {
 
   databaseServers!: DatabaseServer[]
 
-  environment!: ImportEnvironmentRequest
+  importRequest!: ImportEnvironmentRequest
   dbServer!: DatabaseServer | null
   filteredOptions!: Observable<DatabaseServer[]>
   myControl = new FormControl<string | DatabaseServer>('')
 
 
   constructor(private navigation: NavigationService, private activatedRoute: ActivatedRoute, private databaseService: DatabaseServerService, private environmentService: EnvironmentService) {
-    this.environment = {}
+    this.importRequest = {}
 
 
   }
@@ -59,6 +58,7 @@ export class ImportEnvironmentV1Component implements OnInit {
 
 
   onSearchdbServerSelectionChanged(event: MatAutocompleteSelectedEvent) {
+    this.importRequest.dbServerId = this.dbServer?.id;
     this.dbServer = event.option?.value;
   }
 
@@ -78,8 +78,10 @@ export class ImportEnvironmentV1Component implements OnInit {
     return this.databaseServers.filter(option => option.name?.toLowerCase().includes(filterValue) || option.connectionString?.toLowerCase().includes(filterValue));
   }
 
+
+
   saveEnvironment() {
-    this.environmentService.importEnvironmet(this.environment)
+    this.environmentService.importEnvironmet(this.importRequest)
       .subscribe(res => {
 
       })

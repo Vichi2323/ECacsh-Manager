@@ -23,7 +23,7 @@ export class IdentityUsersComponent implements OnInit, AfterViewInit {
   currentIndex = -1;
   dataSource!: MatTableDataSource<any>;
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild('paginator') paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
 
@@ -45,6 +45,8 @@ export class IdentityUsersComponent implements OnInit, AfterViewInit {
         next: (data) => {
           this.users = data
           this.dataSource = new MatTableDataSource<any>(this.users);
+          this.dataSource.paginator = this.paginator
+
         },
         error: (e) => console.error(e)
       })

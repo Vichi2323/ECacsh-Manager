@@ -13,15 +13,15 @@ import { ApplicationUser } from '../../models/application-users-model';
   templateUrl: './application-users-v1.component.html',
   styleUrls: ['./application-users-v1.component.scss']
 })
-export class ApplicationUsersV1Component implements OnInit, AfterViewInit {
+export class ApplicationUsersV1Component implements OnInit {
 
-  displayedColumns: any[] = ["userName", "email", "actions"];
+  displayedColumns = ["userName", "email", "actions"];
   appUsers?: ApplicationUser[]
   currentUser: ApplicationUser = {}
   currentIndex = -1;
   dataSource!: MatTableDataSource<any>;
 
-  @ViewChild(MatPaginator,) paginator!: MatPaginator;
+  @ViewChild('paginator') paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
 
@@ -39,10 +39,6 @@ export class ApplicationUsersV1Component implements OnInit, AfterViewInit {
 
   }
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
 
 
 
@@ -53,6 +49,7 @@ export class ApplicationUsersV1Component implements OnInit, AfterViewInit {
         next: (data) => {
           this.appUsers = data
           this.dataSource = new MatTableDataSource(this.appUsers);
+          this.dataSource.paginator = this.paginator
         },
         error: (e) => console.error(e)
       })

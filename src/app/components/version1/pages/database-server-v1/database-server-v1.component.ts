@@ -2,10 +2,11 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Data, Router } from '@angular/router';
+import { ActivatedRoute, Data, Router } from '@angular/router';
 import { DatabaseServerService } from '../../backend/resources/database-server/database-server.service';
 import { NavigationService } from '../../backend/resources/navigation-service';
 import { DatabaseServer } from '../../models/database-server-model';
+import { ErrorTracker } from '../../models/errorTracker';
 
 @Component({
   selector: 'app-database-server-v1',
@@ -27,23 +28,34 @@ export class DatabaseServerV1Component implements OnInit {
     this.dataSource.sort = this.sort;
   }
 
-  constructor(private router: Router, private dbService: DatabaseServerService, private navigate: NavigationService) {
+  constructor(private router: Router, private dbService: DatabaseServerService, private navigate: NavigationService, private route: ActivatedRoute) {
     this.dataSource = new MatTableDataSource(this.dbServers)
   }
 
   ngOnInit(): void {
-    this.retriveDbServers()
+
+    let resolvedData: DatabaseServer[] | ErrorTracker = this.route.snapshot.data['ResolvedDbServers']
+    if (resolvedData instanceof ErrorTracker) {
+      console.log(`Dashboard component error: ${resolvedData.friendlyMessage}`);
+    }
+    else {
+      this.dbServers = resolvedData;
+      this.dataSource = new MatTableDataSource(this.dbServers);
+      this.dataSource.paginator = this.paginator
+    }
+
+
+
+    // this.dbService.getAll()
+    //   .subscribe((data) => {
+    //     this.dbServers = data
+    //     this.dataSource = new MatTableDataSource<any>(this.dbServers)
+    //     this.dataSource.paginator = this.paginator
+
+    //   })
   }
 
-  retriveDbServers(): void {
-    this.dbService.getAll()
-      .subscribe((data) => {
-        this.dbServers = data
-        this.dataSource = new MatTableDataSource<any>(this.dbServers)
-        this.dataSource.paginator = this.paginator
 
-      })
-  }
 
   newDbServer() {
     var url = 'v1/database-server/create'

@@ -7,6 +7,9 @@ import { Router } from '@angular/router';
 import { ApplicationUserService } from '../../backend/resources/application-user/application-user.service';
 import { NavigationService } from '../../backend/resources/navigation-service';
 import { ApplicationUser } from '../../models/application-users-model';
+import { ActivatedRoute } from '@angular/router';
+import { ErrorTracker } from '../../models/errorTracker';
+
 
 @Component({
   selector: 'app-application-users-v1',
@@ -17,7 +20,6 @@ export class ApplicationUsersV1Component implements OnInit {
 
   displayedColumns = ["userName", "email", "actions"];
   appUsers?: ApplicationUser[]
-  currentUser: ApplicationUser = {}
   currentIndex = -1;
   dataSource!: MatTableDataSource<any>;
 
@@ -26,38 +28,42 @@ export class ApplicationUsersV1Component implements OnInit {
 
 
 
-  constructor(private router: Router, private userService: ApplicationUserService, private navigate: NavigationService) {
+  constructor(private router: Router, private userService: ApplicationUserService, private navigate: NavigationService, private route: ActivatedRoute) {
     this.dataSource = new MatTableDataSource(this.appUsers)
   }
 
 
 
-
-
-  ngOnInit(): void {
-    this.retrieveUsers()
-
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
 
 
+  ngOnInit() {
 
-  retrieveUsers(): void {
+    let resolvedData: ApplicationUser[] | ErrorTracker = this.route.snapshot.data['ResolvedApplicationUsers']
+    if (resolvedData instanceof ErrorTracker) {
+      console.log(`Dashboard component error: ${resolvedData.friendlyMessage}`);
+    }
+    else {
 
-    this.userService.getAll()
-      .subscribe({
-        next: (data) => {
-          this.appUsers = data
-          this.dataSource = new MatTableDataSource(this.appUsers);
-          this.dataSource.paginator = this.paginator
-        },
-        error: (e) => console.error(e)
-      })
+      this.appUsers = resolvedData;
+      this.dataSource = new MatTableDataSource(this.appUsers);
+      this.dataSource.paginator = this.paginator
+    }
+
+
+    //   this.userService.getAll()
+    //     .subscribe((res) => {
+    //       this.appUsers = res
+    //       this.dataSource = new MatTableDataSource(this.appUsers);
+    //       this.dataSource.paginator = this.paginator
+
+    //     })
 
   }
-
-
-
 
 
 

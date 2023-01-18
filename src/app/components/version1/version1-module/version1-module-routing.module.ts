@@ -13,6 +13,10 @@ import { IdentityUsersV1Component } from '../pages/identity-users-v1/identity-us
 import { CreateDatabaseServerV1Component } from '../pages/database-server-v1/create-database-server-v1/create-database-server-v1.component';
 import { ManageEnvironmentsV1Component } from '../pages/environment-v1/manage-environments-v1/manage-environments-v1.component';
 import { ImportEnvironmentV1Component } from '../pages/environment-v1/import-environment-v1/import-environment-v1.component';
+import { ApplicationUserResolver } from '../backend/resources/application-user/application-user-resolver.service';
+import { IdentityUserResolver } from '../backend/resources/identity-user/identity-user-resolver.service';
+import { EnvironmnetResolver } from '../backend/resources/environment/environment-resolver.service';
+import { DatabaseServerResolver } from '../backend/resources/database-server/database-server-resolver.service';
 const routes: Routes = [
 
 
@@ -20,15 +24,15 @@ const routes: Routes = [
     path: 'v1', component: AppVersion1Component,
     children: [
       { path: 'dashboard', component: DashboardV1Component },
-      { path: 'environments', component: EnvironmentsV1Component },
+      { path: 'environments', component: EnvironmentsV1Component, resolve: { ResolvedEnvironments: EnvironmnetResolver } },
       { path: 'environments/create', component: CreateEnvironmentV1Component },
-      { path: 'identity-users', component: IdentityUsersV1Component },
+      { path: 'identity-users', component: IdentityUsersV1Component, resolve: { ResolvedIdentityUsers: IdentityUserResolver } },
       { path: 'identity-users/create', component: CreateEditIdentityUsersV1Component },
       { path: 'identity-users/:id/edit', component: CreateEditIdentityUsersV1Component },
-      { path: 'application-users', component: ApplicationUsersV1Component },
+      { path: 'application-users', component: ApplicationUsersV1Component, resolve: { ResolvedApplicationUsers: ApplicationUserResolver } },
       { path: 'application-users/create-user', component: CreateEditApplicationUsersV1Component },
       { path: 'application-users/:id/edit', component: CreateEditApplicationUsersV1Component },
-      { path: 'database-server', component: DatabaseServerV1Component },
+      { path: 'database-server', component: DatabaseServerV1Component, resolve: { ResolvedDbServers: DatabaseServerResolver } },
       { path: 'database-server/create', component: CreateDatabaseServerV1Component },
       { path: 'environments/:id/manage', component: ManageEnvironmentsV1Component },
       { path: 'app-import-environment-v1', component: ImportEnvironmentV1Component }

@@ -4,10 +4,11 @@ import { AfterViewInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Environment } from '../../models/environment-model';
 import { EnvironmentService } from '../../backend/resources/environment/environment.service';
 import { NavigationService } from '../../backend/resources/navigation-service';
+import { ErrorTracker } from '../../models/errorTracker';
 
 @Component({
   selector: 'app- environments-v1',
@@ -28,7 +29,7 @@ export class EnvironmentsV1Component implements OnInit, AfterViewInit {
 
 
 
-  constructor(private router: Router, private userService: EnvironmentService, private navigate: NavigationService
+  constructor(private router: Router, private userService: EnvironmentService, private navigate: NavigationService, private route: ActivatedRoute
   ) {
     this.dataSource = new MatTableDataSource(this.environments)
   }
@@ -42,18 +43,27 @@ export class EnvironmentsV1Component implements OnInit, AfterViewInit {
 
 
   ngOnInit(): void {
-    this.getEnvironments()
 
-  }
-  getEnvironments(): void {
+    let resolvedData: Environment[] | ErrorTracker = this.route.snapshot.data['ResolvedEnvironments']
+    if (resolvedData instanceof ErrorTracker) {
+      console.log(`Dashboard component error: ${resolvedData.friendlyMessage}`);
+    }
+    else {
+      this.environments = resolvedData;
+      this.dataSource = new MatTableDataSource(this.environments);
+      this.dataSource.paginator = this.paginator
+    }
 
-    this.userService.getAll()
-      .subscribe((data) => {
-        this.environments = data;
-        this.dataSource = new MatTableDataSource<any>(this.environments);
-        this.dataSource.paginator = this.paginator
 
-      })
+
+    // this.userService.getAll()
+    //   .subscribe((data) => {
+    //     this.environments = data;
+    //     this.dataSource = new MatTableDataSource<any>(this.environments);
+    //     this.dataSource.paginator = this.paginator
+
+    //   })
+
   }
 
 

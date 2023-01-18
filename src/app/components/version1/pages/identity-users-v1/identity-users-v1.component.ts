@@ -4,9 +4,10 @@ import { AfterViewInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IdentityUser } from '../../models/identity-user-model';
 import { NavigationService } from '../../backend/resources/navigation-service';
+import { ErrorTracker } from '../../models/errorTracker';
 
 @Component({
   selector: 'app-identity-users-v1',
@@ -19,7 +20,6 @@ export class IdentityUsersV1Component implements OnInit, AfterViewInit {
   users?: IdentityUser[]
   dataSource!: MatTableDataSource<any>;
 
-  isListLoading = true;
 
   @ViewChild('paginator') paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -31,26 +31,38 @@ export class IdentityUsersV1Component implements OnInit, AfterViewInit {
 
   }
 
-  constructor(private router: Router, private userService: IdentityUserService, private navigation: NavigationService
+  constructor(private router: Router, private userService: IdentityUserService, private navigation: NavigationService, private route: ActivatedRoute
   ) {
     this.dataSource = new MatTableDataSource(this.users)
   }
 
-  ngOnInit(): void {
-    this.retrieveUsers()
+  ngOnInit() {
+
+    let resolvedData: IdentityUser[] | ErrorTracker = this.route.snapshot.data['ResolvedIdentityUsers']
+    if (resolvedData instanceof ErrorTracker) {
+      console.log(`Dashboard component error: ${resolvedData.friendlyMessage}`);
+    }
+    else {
+      this.users = resolvedData;
+      this.dataSource = new MatTableDataSource(this.users);
+      this.dataSource.paginator = this.paginator
+    }
+
+
+
+
+    // this.userService.getAll()
+    //   .subscribe((res) => {
+    //     this.users = res;
+    //     this.dataSource = new MatTableDataSource<any>(this.users);
+    //     this.isListLoading = false;
+    //     this.dataSource.paginator = this.paginator
+
+    //   })
 
   }
 
-  retrieveUsers(): void {
-    this.userService.getAll()
-      .subscribe((res) => {
-        this.users = res;
-        this.dataSource = new MatTableDataSource<any>(this.users);
-        this.isListLoading = false;
-        this.dataSource.paginator = this.paginator
 
-      })
-  }
 
 
   toggleUserActive(userId: any, value: boolean) {

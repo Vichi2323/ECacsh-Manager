@@ -47,10 +47,6 @@ export class CreateEditApplicationUsersV1Component implements OnInit {
           );
         }
       })
-
-
-    // Initialize filteredOptions for Search AutoComplete  Control
-
     this.activatedRoute.params
       .subscribe(params => {
         this.userId = params['id'];

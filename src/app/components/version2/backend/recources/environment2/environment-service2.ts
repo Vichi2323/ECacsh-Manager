@@ -40,10 +40,10 @@ export class EnvironmentService2 {
     assignDbServerToEnvironment(environmentId: any, dbSErverId: any) {
         return this.apiService.post(resourceId + '/' + environmentId + '/dbServer/' + dbSErverId)
     }
-    // importEnvironmet(data: any) {
-    //     var request = this.mapper.mapImportEnvironment(data);
-    //     return this.apiService.post(resourceId + '/import', request)
-    // }
+    importEnvironmet(data: any) {
+        var request = this.mapper.mapImportEnvironment(data);
+        return this.apiService.post(resourceId + '/import', request)
+    }
 }
 
 

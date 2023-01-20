@@ -1,0 +1,154 @@
+<div class="content">
+    <div class="title-button">
+        <button class="back-button" (click)="back()">
+      <mat-icon id="arrow-back">arrow_back</mat-icon>
+    </button>
+
+        <h1>Import Environment</h1>
+        <span class="example-spacer"></span>
+        <button mat-raised-button form="ngForm" type="submit">Save</button>
+    </div>
+    <hr />
+    <form class="create-form" (ngSubmit)="saveEnvironment()" #userForm="ngForm" id="ngForm" novalidate>
+        <mat-card class="user-info-card">
+            <div class="username-email-telephonne-div">
+                <h2>User Info</h2>
+                <mat-form-field class="mat-form-field">
+                    <mat-label>Username</mat-label>
+                    <input matInput name="userName" [(ngModel)]="importRequest.userName" required #userName="ngModel" />
+
+                    <mat-error> Username is required </mat-error>
+
+                    <mat-error> </mat-error>
+                </mat-form-field>
+                <mat-form-field class="mat-form-field">
+                    <mat-label>Email</mat-label>
+                    <input matInput name="email" [(ngModel)]="importRequest.email" required email #email="ngModel" />
+                    <mat-error> Email is required </mat-error>
+                </mat-form-field>
+                <mat-form-field class="mat-form-field">
+                    <mat-label>Telephone</mat-label>
+                    <input matInput placeholder="555-555-1234" [(ngModel)]="importRequest.phoneNumber" name="phoneNumber" required #phone="ngModel" />
+                    <mat-icon matSuffix>phone</mat-icon>
+                    <mat-error> Telephone Number is required </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="password-div">
+                <h2 class="spacer">Spacer</h2>
+                <mat-form-field class="mat-form-field">
+                    <mat-label>Password</mat-label>
+                    <input matInput name="password" [(ngModel)]="importRequest.password" required #password="ngModel" type="password" />
+
+                    <mat-error> password is required </mat-error>
+
+                    <mat-error> </mat-error>
+                </mat-form-field>
+                <mat-form-field class="mat-form-field">
+                    <mat-label>Confirm Password</mat-label>
+                    <input matInput name="confirmPassword" [(ngModel)]="importRequest.confirmPassword" required #confirmPassword="ngModel" type="password" />
+
+                    <mat-error> Confirm password is required </mat-error>
+
+                    <mat-error> </mat-error>
+                </mat-form-field>
+            </div>
+        </mat-card>
+
+        <br />
+
+        <mat-card class="environmrnt-info-card">
+            <div class="environmentname-dbserver-column">
+                <h2>Environment Info</h2>
+                <mat-form-field class="mat-form-field-subscription">
+                    <mat-label>Environment Name</mat-label>
+                    <input matInput name="environmentName" [(ngModel)]="importRequest.environmentName" required #environmentName="ngModel" />
+                    <mat-error> Environment Name is required </mat-error>
+                    <mat-error> </mat-error>
+                </mat-form-field>
+                <mat-form-field class="mat-form-field-subscription" appearance="fill">
+                    <mat-label class="input-label">Choose Database Server</mat-label>
+                    <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto" />
+                    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="onSearchdbServerSelectionChanged($event)">
+                        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                            {{ option.name }}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+            </div>
+            <mat-card class="subscription-card">
+                <div class="number-of-locations-column">
+                    <h2>Subscriptions</h2>
+                    <mat-form-field class="mat-form-field-subscription">
+                        <mat-label>Number of locations</mat-label>
+                        <input type="number" matInput name="numOfLocations" [(ngModel)]="importRequest.numOfLocations" required numOfLocations #numOfLocations="ngModel" />
+                        <mat-error> Number of locations is required </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="mat-form-field-subscription">
+                        <mat-label>Number of poses</mat-label>
+                        <input type="number" matInput name="numOfPoses" [(ngModel)]="importRequest.numOfPoses" required numOfPoses #numOfPoses="ngModel" />
+                        <mat-error> Number of poses is required </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="mat-form-field-subscription">
+                        <mat-label>Number of mobile poses</mat-label>
+                        <input type="number" matInput name="numOfMobilePoses" [(ngModel)]="importRequest.numOfMobilePoses" required numOfMobilePoses #numOfMobilePoses="ngModel" />
+                        <mat-error> Number of poses is required </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="mat-form-field-subscription">
+                        <mat-label>Expiry Date</mat-label>
+                        <input type="date" matInput name="expiryDate" [(ngModel)]="importRequest.expiryDate" required expiryDate #numOfMobilePoses="ngModel" />
+                        <mat-error> Expiry Date </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="is-warehousing-enabled-column">
+                    <h2 class="spacer">Spacer</h2>
+                    <label class="radio-label-warehouse">Is Warehousing Enabled</label>
+                    <mat-radio-group aria-label="Select an option" [(ngModel)]="importRequest.isWarehousingEnabled" class="radio-input" name="isWarehousingEnabled" #isWarehousingEnabled="ngModel">
+                        <mat-radio-button [value]="true">Yes</mat-radio-button>
+                        <mat-radio-button [value]="false" class="no-radio-button">No</mat-radio-button>
+                    </mat-radio-group>
+
+                    <mat-form-field class="mat-form-field-subscription">
+                        <mat-label>Number of Warehouses</mat-label>
+                        <input type="number" matInput name=" numberOfWarehouses" [(ngModel)]="importRequest.numberOfWarehouses" required numberOfWarehouses #numberOfWarehouses="ngModel" />
+                        <mat-error>Number of Warehouses enabled is required </mat-error>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <div class="is-invoicing-enabled-column">
+                        <h2 class="spacer">Spacer</h2>
+
+                        <label class="radio-label">Is Invoicing Enabled</label>
+                        <mat-radio-group aria-label="Select an option" [(ngModel)]="importRequest.isInvoicingEnabled" class="radio-input" name="isInvoicingEnabled" #isInvoicingEnabled="ngModel">
+                            <mat-radio-button [value]="true">Yes</mat-radio-button>
+                            <mat-radio-button [value]="false" class="no-radio-button">No</mat-radio-button>
+                        </mat-radio-group>
+                        <br />
+                        <label class="radio-label">Is Accounting Jurnal Enabled</label>
+                        <mat-radio-group aria-label="Select an option" [(ngModel)]="importRequest.isAccountingJournalEnabled" class="radio-input" name="isAccountingJournalEnabled" #isAccountingJournalEnabled="ngModel">
+                            <mat-radio-button [value]="true">Yes</mat-radio-button>
+                            <mat-radio-button [value]="false" class="no-radio-button">No</mat-radio-button>
+                        </mat-radio-group>
+                        <br />
+                        <label class="radio-label">Is Customers Enabled</label>
+                        <mat-radio-group aria-label="Select an option" [(ngModel)]="importRequest.isCustomersEnabled" class="radio-input" name="isCustomersEnabled" #isCustomersEnabled="ngModel">
+                            <mat-radio-button [value]="true">Yes</mat-radio-button>
+                            <mat-radio-button [value]="false" class="no-radio-button">No</mat-radio-button>
+                        </mat-radio-group>
+                        <br />
+                        <label class="radio-label">Is Regular Guest Enabled</label>
+                        <mat-radio-group aria-label="Select an option" [(ngModel)]="importRequest.isRegularGuestEnabled" class="radio-input" name="isRegularGuestEnabled" #isRegularGuestEnabled="ngModel">
+                            <mat-radio-button [value]="true">Yes</mat-radio-button>
+                            <mat-radio-button [value]="false" class="no-radio-button">No</mat-radio-button>
+                        </mat-radio-group>
+                        <br />
+                        <label class="radio-label">Is Delivery Enabled</label>
+                        <mat-radio-group aria-label="Select an option" [(ngModel)]="importRequest.isDeliveryEnabled" class="radio-input" name="isDeliveryEnabled" #isDeliveryEnabled="ngModel">
+                            <mat-radio-button [value]="true">Yes</mat-radio-button>
+                            <mat-radio-button [value]="false" class="no-radio-button">No</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                </div>
+            </mat-card>
+        </mat-card>
+    </form>
+</div>

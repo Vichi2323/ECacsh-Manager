@@ -5,6 +5,7 @@ import { ApplicationUserMapper2 } from "../application-user2/application-user-ma
 import { Environment2 } from "../../../models2/environment-model2";
 import { SubscriptionMapper2 } from "../subscription2/subscription-mapper2.service";
 import EnvironmentRegionEnumeration2 from "../../enumerations2/environment-region.2enum";
+import { ImportEnvironmentRequest2 } from "../../../models2/import-environmnet-model2";
 @Injectable({
     providedIn: 'root'
 })
@@ -50,6 +51,10 @@ export class EnvironmentMapper2 {
             isDeliveryEnabled: entity.isDeliveryEnabled
         }
     }
+    mapImportEnvironment(entity: ImportEnvironmentRequest2) {
+        return {
 
+        }
+    }
 
 }

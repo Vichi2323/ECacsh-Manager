@@ -51,6 +51,7 @@ import { EnvironmentUsersTab2Component } from './components/version2/pages2/envi
 import { SubscriptionEditDialog2Component } from './components/version2/pages2/environments-v2/menage-environments-v2/subscription-edit-dialog2/subscription-edit-dialog2.component';
 import { CreateEditEnvironment2Component } from './components/version2/pages2/environments-v2/create-edit-environment2/create-edit-environment2.component';
 import { AreYouSure2Component } from './components/version2/components2/common/are-you-sure2/are-you-sure2.component';
+import { ImportEnvironmentV2Component } from './components/version2/pages2/environments-v2/import-environment-v2/import-environment-v2.component';
 
 
 
@@ -100,6 +101,7 @@ let toastr: Toastr = window['toastr'];
     SubscriptionEditDialog2Component,
     CreateEditEnvironment2Component,
     AreYouSure2Component,
+    ImportEnvironmentV2Component,
 
 
   ],

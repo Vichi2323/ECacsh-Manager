@@ -3,9 +3,10 @@ import { AfterViewInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IdentityUserService2 } from '../../backend/recources/identity-user2/identity-user2.service';
 import { NavigationServiceV2 } from '../../backend/recources/navigation2.service';
+import { ErrorTracker2 } from '../../models2/errorTracker2';
 import { IdentityUser2 } from '../../models2/identity-user-model2';
 
 
@@ -32,24 +33,32 @@ export class IdentityUsersComponent implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
-  constructor(private router: Router, private userService: IdentityUserService2, private navigation: NavigationServiceV2,
+  constructor(private router: Router, private userService: IdentityUserService2, private navigation: NavigationServiceV2, private route: ActivatedRoute
   ) { this.dataSource = new MatTableDataSource(this.users) }
 
   ngOnInit(): void {
-    this.retrieveUsers()
-  }
 
-  retrieveUsers(): void {
-    this.userService.getAll()
-      .subscribe({
-        next: (data) => {
-          this.users = data
-          this.dataSource = new MatTableDataSource<any>(this.users);
-          this.dataSource.paginator = this.paginator
+    let resolvedData: IdentityUser2[] | ErrorTracker2 = this.route.snapshot.data['ResolvedIdentityUsers']
+    if (resolvedData instanceof ErrorTracker2) {
+      console.log(`Dashboard component error: ${resolvedData.friendlyMessage}`);
+    }
+    else {
+      this.users = resolvedData;
+      this.dataSource = new MatTableDataSource(this.users);
+      this.dataSource.paginator = this.paginator
+    }
 
-        },
-        error: (e) => console.error(e)
-      })
+
+
+
+    // this.userService.getAll()
+    //   .subscribe((res) => {
+    //     this.users = res;
+    //     this.dataSource = new MatTableDataSource<any>(this.users);
+    //     this.isListLoading = false;
+    //     this.dataSource.paginator = this.paginator
+
+    //   })
   }
 
 

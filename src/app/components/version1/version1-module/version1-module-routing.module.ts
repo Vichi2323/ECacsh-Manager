@@ -35,7 +35,7 @@ const routes: Routes = [
       { path: 'database-server', component: DatabaseServerV1Component, resolve: { ResolvedDbServers: DatabaseServerResolver } },
       { path: 'database-server/create', component: CreateDatabaseServerV1Component },
       { path: 'environments/:id/manage', component: ManageEnvironmentsV1Component },
-      { path: 'app-import-environment-v1', component: ImportEnvironmentV1Component }
+      { path: 'app-import-environment', component: ImportEnvironmentV1Component }
     ]
   },
 

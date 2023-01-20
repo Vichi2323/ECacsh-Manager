@@ -1,0 +1,289 @@
+        .content {
+            height: calc(100vh - 98px);
+            margin: 46px;
+            margin-left: 90px;
+            font-size: 3rem;
+            color: rgb(59, 59, 59);
+            display: flex;
+            flex-direction: column;
+            align-content: flex-start;
+        }
+        
+        .user-info-card {
+            display: flex;
+            flex-direction: row;
+            // justify-content: space-between;
+            gap: 5%;
+            flex-wrap: wrap;
+        }
+        
+        .username-email-telephonne-div {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            width: 45%;
+        }
+        
+        .password-div {
+            display: flex;
+            flex-direction: column;
+            // margin-right: 300px;
+            width: 45%;
+        }
+        
+        .environmrnt-info-card {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 10%;
+        }
+        
+        .environmentname-dbserver-column {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .subscription-card {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            width: 60rem;
+        }
+        
+        .number-of-locations-column {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .is-warehousing-enabled-column {
+            display: flex;
+            flex-direction: column;
+            align-self: inherit;
+        }
+        
+        .is-invoicing-enabled-column {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        h1 {
+            color: #616161;
+            font-size: 25px;
+            position: absolute;
+        }
+        
+        h2 {
+            color: #616161;
+        }
+        
+        .spacer {
+            visibility: hidden;
+        }
+        
+        mat-form-field.mat-form-field {
+            font: inherit;
+            margin-top: 1px;
+            font-size: 17px;
+        }
+        
+         ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+            background-color: white;
+            position: relative;
+        }
+        
+        .mat-form-field-subscription {
+            width: 300px !important;
+        }
+        
+        mat-radio-button {
+            color: #2D3142;
+            font-size: medium;
+        }
+        
+        hr {
+            opacity: 1px;
+            height: 2px;
+            border-width: 0;
+            color: #616161;
+            background-color: #61616160;
+            width: 100%
+        }
+        
+        .title-button {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: -15px;
+            margin-top: -89px;
+        }
+        
+        p {
+            color: #2D3142;
+            font-size: small;
+            margin-top: 40px;
+            margin-bottom: -20px;
+        }
+        
+        mat-datepicker-toggle {
+            color: #2D3142;
+        }
+        
+        .mat-calendar-body-selected {
+            background-color: #2D3142;
+            color: #2D3142;
+        }
+        
+        mat-icon {
+            color: #2D3142;
+            font-size: 20px !important
+        }
+        
+        .mat-flat-button,
+        .mat-raised-button,
+        .mat-fab,
+        .mat-mini-fab {
+            color: #fff;
+            background-color: #616161;
+        }
+        
+        .radio-label {
+            font-size: 17px;
+            color: #2D3142;
+        }
+        
+         ::ng-deep .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+            opacity: 0 !important;
+            /*click effect color change*/
+            background-color: #2D3142 !important;
+        }
+        
+         ::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
+            background-color: #616161!important;
+            /*inner circle color change*/
+        }
+        
+         ::ng-deep.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+            border-color: #616161!important;
+            /*outer ring color change*/
+        }
+        
+         ::ng-deep.mat-radio-outer-circle {
+            border-color: #2D3142!important;
+            /*outer ring color change*/
+        }
+        /* Font color */
+        
+        input color class ng-deep input.mat-input-element {
+            color: #484a4c !important;
+        }
+        /* Change label color on focused */
+        
+         ::ng-deep .mat-form-field.mat-focused {
+            color: #2D3142 !important;
+        }
+        
+         ::ng-deep .mat-form-field-label {
+            color: #2D3142 !important;
+        }
+        /* underline border color on focused */
+        
+         ::ng-deep .mat-focused .mat-form-field-underline .mat-form-field-ripple {
+            background-color: #2D3142 !important;
+        }
+        
+        .radio-label {
+            font-size: 14px;
+            color: #2D3142;
+        }
+        
+        .radio-input {
+            font-size: 14px;
+            color: #2D3142;
+        }
+        
+        .no-radio-button {
+            margin-left: 25px;
+        }
+        
+        .radio-label-warehouse {
+            font-size: 14px;
+            margin-top: 28px;
+        }
+        
+        // .left-radio-button {
+        //     margin-right: 50px;
+        // }
+         ::ng-deep .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+            opacity: 0 !important;
+            /*click effect color change*/
+            background-color: #2D3142 !important;
+        }
+        
+         ::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
+            background-color: #616161!important;
+            /*inner circle color change*/
+        }
+        
+         ::ng-deep.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+            border-color: #616161!important;
+            /*outer ring color change*/
+        }
+        
+         ::ng-deep.mat-radio-outer-circle {
+            border-color: #2D3142!important;
+            /*outer ring color change*/
+        }
+        
+         ::ng-deep .mat-form-field-infix {
+            width: auto !important;
+        }
+        
+         :host ::ng-deep .mat-radio-container {
+            height: 10px;
+            width: 10px;
+        }
+        
+         :host ::ng-deep .mat-radio-outer-circle {
+            height: 10px;
+            width: 10px;
+        }
+        
+         :host ::ng-deep .mat-radio-inner-circle {
+            height: 10px;
+            width: 10px;
+        }
+        
+        .back-button {
+            margin-left: -60px;
+            margin-bottom: 5px;
+            border: none;
+            background-color: transparent;
+        }
+        
+        #arrow-back:hover {
+            color: #1976d2
+        }
+        
+        #arrow-back {
+            color: #616161;
+            cursor: pointer;
+            font-size: 23px !important
+        }
+        
+        mat-form-field.mat-form-field {
+            width: 100%;
+        }
+        
+        @media only screen and (max-width: 560px) and (min-width: 300px) {
+            .username-email-telephonne-div {
+                width: 100%;
+            }
+            .password-div {
+                width: 100%;
+            }
+            .environmentname-dbserver-column {
+                width: 100%;
+            }
+        }

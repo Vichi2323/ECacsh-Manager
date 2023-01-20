@@ -16,6 +16,11 @@ import { MessageQueueServersComponent } from '../pages2/message-queue-servers/me
 import { MediaLibraryComponent } from '../pages2/media-library/media-library.component';
 import { CreateEditEnvironment2Component } from '../pages2/environments-v2/create-edit-environment2/create-edit-environment2.component';
 import { MenageEnvironmentsV2Component } from '../pages2/environments-v2/menage-environments-v2/menage-environments-v2.component';
+import { ApplicationUserResolver2 } from '../backend/recources/application-user2/application-user-resolver2.service';
+import { IdentityUserResolver } from '../../version1/backend/resources/identity-user/identity-user-resolver.service';
+import { EnvironmnetResolver2 } from '../backend/recources/environment2/environment-resolver.service2';
+import { ImportEnvironmentV2Component } from '../pages2/environments-v2/import-environment-v2/import-environment-v2.component';
+import { DatabaseServerResolver2 } from '../backend/recources/database-server2/database-server-resolver2';
 
 const routes: Routes = [
 
@@ -23,23 +28,25 @@ const routes: Routes = [
     path: 'v2', component: AppVersion2Component,
     children: [
       { path: 'dashboard', component: DashboardV2Component },
-      { path: 'application-users', component: ApplicationUsersComponent },
+      { path: 'application-users', component: ApplicationUsersComponent, resolve: { ResolvedApplicationUsers: ApplicationUserResolver2 } },
       { path: 'application-users/create-user', component: AppUsersCreateEditComponent },
       { path: 'application-users/:id/edit', component: AppUsersCreateEditComponent },
-      { path: 'environments', component: EnviormentsComponent },
+      { path: 'environments', component: EnviormentsComponent, resolve: { ResolvedEnvironments: EnvironmnetResolver2 } },
       { path: 'environments/:id/manage', component: MenageEnvironmentsV2Component },
       { path: 'environments/create', component: CreateEditEnvironment2Component },
       { path: 'orders', component: OrdersComponent },
       { path: 'payment', component: PaymentComponent },
       { path: 'application', component: ApplicationComponent },
-      { path: 'identity-users', component: IdentityUsersComponent },
+      { path: 'identity-users', component: IdentityUsersComponent, resolve: { ResolvedIdentityUsers: IdentityUserResolver } },
       { path: 'identity-users/create', component: CreateEditIdentityUsersComponent },
       { path: 'identity-users/:id/edit', component: CreateEditIdentityUsersComponent },
       { path: 'application', component: ApplicationComponent },
-      { path: 'database-server', component: DatabaseServerV2Component },
+      { path: 'database-server', component: DatabaseServerV2Component, resolve: { ResolvedDbServers: DatabaseServerResolver2 } },
       { path: "database-server/create", component: CreateDatabaseServerV2Component },
       { path: 'app-message-queue-servers', component: MessageQueueServersComponent },
-      { path: 'app-media-library', component: MediaLibraryComponent }
+      { path: 'app-media-library', component: MediaLibraryComponent },
+      { path: 'app-import-environment', component: ImportEnvironmentV2Component }
+
     ]
   }
 ];

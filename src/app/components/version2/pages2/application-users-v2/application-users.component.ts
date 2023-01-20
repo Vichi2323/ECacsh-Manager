@@ -3,10 +3,11 @@ import { AfterViewInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApplicationUserService2 } from '../../backend/recources/application-user2/application-user2.service';
 import { NavigationServiceV2 } from '../../backend/recources/navigation2.service';
 import { ApplicationUser2 } from '../../models2/application-users-model2';
+import { ErrorTracker2 } from '../../models2/errorTracker2';
 
 @Component({
   selector: 'app-application-users',
@@ -17,7 +18,6 @@ export class ApplicationUsersComponent implements OnInit, AfterViewInit {
 
   displayedColumns: any[] = ["userName", "email", "actions"];
   appUsers?: ApplicationUser2[]
-  currentUser: ApplicationUser2 = {}
   currentIndex = -1;
   dataSource!: MatTableDataSource<any>;
 
@@ -26,18 +26,10 @@ export class ApplicationUsersComponent implements OnInit, AfterViewInit {
 
 
 
-  constructor(private router: Router, private userService: ApplicationUserService2, private navigate: NavigationServiceV2) {
+  constructor(private router: Router, private userService: ApplicationUserService2, private navigate: NavigationServiceV2, private route: ActivatedRoute) {
     this.dataSource = new MatTableDataSource(this.appUsers)
   }
 
-
-
-
-
-  ngOnInit(): void {
-    this.retrieveUsers()
-
-  }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -46,18 +38,26 @@ export class ApplicationUsersComponent implements OnInit, AfterViewInit {
 
 
 
-  retrieveUsers(): void {
+  ngOnInit(): void {
+    let resolvedData: ApplicationUser2[] | ErrorTracker2 = this.route.snapshot.data['ResolvedApplicationUsers']
+    if (resolvedData instanceof ErrorTracker2) {
+      console.log(`Dashboard component error: ${resolvedData.friendlyMessage}`);
+    }
+    else {
 
-    this.userService.getAll()
-      .subscribe({
-        next: (data) => {
-          this.appUsers = data
-          this.dataSource = new MatTableDataSource(this.appUsers);
-          this.dataSource.paginator = this.paginator
+      this.appUsers = resolvedData;
+      this.dataSource = new MatTableDataSource(this.appUsers);
+      this.dataSource.paginator = this.paginator
+    }
 
-        },
-        error: (e) => console.error(e)
-      })
+
+    //   this.userService.getAll()
+    //     .subscribe((res) => {
+    //       this.appUsers = res
+    //       this.dataSource = new MatTableDataSource(this.appUsers);
+    //       this.dataSource.paginator = this.paginator
+
+    //     })
 
   }
 
